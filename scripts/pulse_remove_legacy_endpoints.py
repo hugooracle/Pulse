@@ -34,10 +34,17 @@ def fix_discord(s: str) -> str:
 
 edit("core/service/kizzy/src/commonMain/kotlin/com/my/kizzy/DiscordRPC.kt", fix_discord)
 
-# Song share links use the canonical YouTube Music URL.
+# Share links use canonical YouTube Music URLs for songs, videos, playlists, albums and artists.
+def fix_share_links(s: str) -> str:
+    return (
+        s.replace("https://pulse.org/app/watch?v=", "https://music.youtube.com/watch?v=")
+        .replace("https://pulse.org/app/playlist?list=", "https://music.youtube.com/playlist?list=")
+        .replace("https://pulse.org/app/channel/", "https://music.youtube.com/channel/")
+    )
+
 edit(
     "core/service/kotlinYtmusicScraper/src/commonMain/kotlin/pt/pulse/core/kotlinytmusicscraper/models/YTItem.kt",
-    lambda s: s.replace("https://pulse.org/app/watch?v=$id", "https://music.youtube.com/watch?v=$id"),
+    fix_share_links,
 )
 
 # Disable the inherited chart backend. The repository continues to return a valid empty result
