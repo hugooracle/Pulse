@@ -88,7 +88,7 @@ class PulseApplication :
             .enabled(true) // default: true
             .showErrorDetails(true) // default: true
             .showRestartButton(true) // default: true
-            .errorDrawable(R.mipmap.ic_launcher_round)
+            .errorDrawable(R.drawable.app_icon)
             .logErrorOnRestart(false) // default: true
             .trackActivities(true) // default: false
             .minTimeBetweenCrashesMs(2000) // default: 3000 //default: bug image
