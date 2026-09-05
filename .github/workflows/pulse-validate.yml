@@ -6,6 +6,10 @@ on:
       - refactor/pulse-full-rebrand
   workflow_dispatch:
 
+concurrency:
+  group: pulse-validation-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -37,7 +41,8 @@ jobs:
           legal = {'LICENSE', 'LICENSE.md', 'NOTICE.md'}
           self_path = '.github/workflows/pulse-validate.yml'
           legacy_name = 'simp' + 'music'
-          forbidden = (legacy_name, legacy_name + '.org', legacy_name + '://', 'pulse' + '.org')
+          legacy_icons = 'simp' + 'icons'
+          forbidden = (legacy_name, legacy_name + '.org', legacy_name + '://', legacy_icons, 'pulse' + '.org')
           text_ext = {'.kt','.kts','.java','.xml','.md','.txt','.json','.yml','.yaml','.toml','.properties','.gradle','.pro','.conf','.cfg','.sh','.ps1','.bat','.html','.css','.js','.ts','.swift','.plist','.py','.svg'}
           special = {'gradlew','gradlew.bat','.gitignore','.gitattributes','Dockerfile','conveyor.conf','Gemfile','Podfile'}
           hits = []
@@ -46,7 +51,7 @@ jobs:
               rel = p.as_posix()
               if rel == self_path or '.git' in p.parts or not p.is_file() or p.name in legal:
                   continue
-              if legacy_name in rel.lower():
+              if legacy_name in rel.lower() or legacy_icons in rel.lower():
                   hits.append(f'path: {rel}')
                   continue
               if p.suffix.lower() not in text_ext and p.name not in special:
