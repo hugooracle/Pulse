@@ -1,0 +1,44 @@
+name: Pulse Room schema migration
+
+on:
+  push:
+    branches:
+      - refactor/pulse-full-rebrand
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ !contains(github.event.head_commit.message, '[room-schema-moved]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: refactor/pulse-full-rebrand
+          fetch-depth: 0
+
+      - name: Move Room schemas to Pulse package
+        shell: bash
+        run: |
+          set -euo pipefail
+          old='core/data/schemas/com.maxrave.data.db.MusicDatabase'
+          new='core/data/schemas/pt.pulse.core.data.db.MusicDatabase'
+          test -d "$old"
+          test ! -e "$new"
+          git mv "$old" "$new"
+          test -f "$new/1.json"
+          test -f "$new/24.json"
+
+      - name: Remove one-shot workflow and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm .github/workflows/pulse-migrate-room-schemas.yml
+          git config user.name 'Hugo'
+          git config user.email 'hugo.oracle@gmail.com'
+          git add -A
+          git commit -m 'fix: move Room schemas to Pulse package [room-schema-moved]'
+          git push origin HEAD:refactor/pulse-full-rebrand
