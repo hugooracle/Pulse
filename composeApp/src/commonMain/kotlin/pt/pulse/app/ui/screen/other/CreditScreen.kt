@@ -3,7 +3,6 @@ package pt.pulse.app.ui.screen.other
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.MarqueeAnimationMode
 import androidx.compose.foundation.basicMarquee
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -72,10 +70,9 @@ fun CreditScreen(
     ) {
         Spacer(modifier = Modifier.height(30.dp))
 
-        // App icon
         Image(
             painter = painterResource(Res.drawable.app_icon),
-            contentDescription = "App Icon",
+            contentDescription = stringResource(Res.string.app_name),
             modifier =
                 Modifier
                     .size(150.dp)
@@ -84,34 +81,20 @@ fun CreditScreen(
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        // App name
         Text(
             text = stringResource(Res.string.app_name),
             style = typo().titleLarge,
             fontSize = 22.sp,
         )
 
-        // Version
         Text(
             text = stringResource(Res.string.version_format, VersionManager.getVersionName()),
             style = typo().bodySmall,
             fontSize = 13.sp,
         )
 
-        // Developer - clickable, opens dev blog
-        Text(
-            text = stringResource(Res.string.maxrave_dev),
-            style = typo().bodyMedium,
-            textDecoration = TextDecoration.Underline,
-            modifier =
-                Modifier.clickable {
-                    openUrl("https://maxrave.dev")
-                },
-        )
-
         Spacer(modifier = Modifier.height(20.dp))
 
-        // App description
         Text(
             text = stringResource(Res.string.credit_app),
             style = typo().bodyMedium,
@@ -125,41 +108,6 @@ fun CreditScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides Dp.Unspecified) {
-            // Website button
-            TextButton(
-                onClick = {
-                    Unit
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.website))
-            }
-
-            // Developer blog button
-            TextButton(
-                onClick = {
-                    openUrl("https://maxrave.dev")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Column {
-                    Text(text = stringResource(Res.string.developer_blog))
-                    Text(
-                        text = stringResource(Res.string.developer_blog_tagline),
-                        style = typo().bodySmall,
-                    )
-                }
-            }
-
-            // GitHub button
             TextButton(
                 onClick = {
                     openUrl("https://github.com/hugooracle/Pulse")
@@ -173,7 +121,6 @@ fun CreditScreen(
                 Text(text = stringResource(Res.string.github))
             }
 
-            // Issue tracker button
             TextButton(
                 onClick = {
                     openUrl("https://github.com/hugooracle/Pulse/issues")
@@ -186,27 +133,12 @@ fun CreditScreen(
             ) {
                 Text(text = stringResource(Res.string.issue_tracker))
             }
-
-            // Buy me a coffee button
-            TextButton(
-                onClick = {
-                    openUrl("https://github.com/sponsors/maxrave-dev")
-                },
-                modifier =
-                    Modifier
-                        .align(Alignment.Start)
-                        .padding(horizontal = 25.dp)
-                        .defaultMinSize(minHeight = 1.dp, minWidth = 1.dp),
-            ) {
-                Text(text = stringResource(Res.string.buy_me_a_coffee))
-            }
         }
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // Copyright text
         Text(
-            text = stringResource(Res.string.copyright),
+            text = "Código aberto sob a GNU GPL v3. Consulte NOTICE.md e LICENSE para os termos e atribuições legais.",
             style = typo().bodySmall,
             modifier =
                 Modifier
@@ -215,9 +147,9 @@ fun CreditScreen(
             textAlign = TextAlign.Start,
         )
 
-        // Bottom spacing
         Spacer(modifier = Modifier.height(200.dp))
     }
+
     TopAppBar(
         modifier =
             Modifier
@@ -244,8 +176,7 @@ fun CreditScreen(
             Box(Modifier.padding(horizontal = 5.dp)) {
                 RippleIconButton(
                     SimpIcons.ArrowBackIosNew,
-                    Modifier
-                        .size(32.dp),
+                    Modifier.size(32.dp),
                     true,
                     tint = MaterialTheme.colorScheme.onSurface,
                 ) {
