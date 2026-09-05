@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Temporary override kept separate during the first Pulse rebrand pass. -->
+    <string name="pulse_app_name" translatable="false">Pulse</string>
+</resources>
