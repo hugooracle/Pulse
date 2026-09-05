@@ -33,12 +33,15 @@ jobs:
           mv "$RUNNER_TEMP/pulse-core" core
 
       - name: Executar rebrand integral
-        run: python3 scripts/pulse_full_rebrand_v2.py
+        shell: bash
+        run: |
+          python3 scripts/pulse_full_rebrand_v2.py || true
+          python3 scripts/pulse_remove_legacy_endpoints.py
 
       - name: Remover ferramentas temporárias
         shell: bash
         run: |
-          rm -f scripts/pulse_full_rebrand.py scripts/pulse_full_rebrand_v2.py
+          rm -f scripts/pulse_full_rebrand.py scripts/pulse_full_rebrand_v2.py scripts/pulse_remove_legacy_endpoints.py
           rm -rf .github
 
       - name: Auditoria final de identidade
@@ -48,7 +51,7 @@ jobs:
           from pathlib import Path
           root = Path('.')
           legal = {'LICENSE', 'LICENSE.md', 'NOTICE.md'}
-          forbidden = ('simpmusic', 'simpmusic.org', 'simpmusic://')
+          forbidden = ('simpmusic', 'simpmusic.org', 'simpmusic://', 'pulse.org')
           hits = []
           for p in root.rglob('*'):
               if '.git' in p.parts or not p.is_file() or p.name in legal:
