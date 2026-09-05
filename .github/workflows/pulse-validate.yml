@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 1
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: microsoft
@@ -35,16 +35,19 @@ jobs:
 
           root = Path('.')
           legal = {'LICENSE', 'LICENSE.md', 'NOTICE.md'}
-          forbidden = ('simpmusic', 'simpmusic.org', 'simpmusic://', 'pulse.org')
+          self_path = '.github/workflows/pulse-validate.yml'
+          legacy_name = 'simp' + 'music'
+          forbidden = (legacy_name, legacy_name + '.org', legacy_name + '://', 'pulse' + '.org')
           text_ext = {'.kt','.kts','.java','.xml','.md','.txt','.json','.yml','.yaml','.toml','.properties','.gradle','.pro','.conf','.cfg','.sh','.ps1','.bat','.html','.css','.js','.ts','.swift','.plist','.py','.svg'}
           special = {'gradlew','gradlew.bat','.gitignore','.gitattributes','Dockerfile','conveyor.conf','Gemfile','Podfile'}
           hits = []
 
           for p in root.rglob('*'):
-              if '.git' in p.parts or not p.is_file() or p.name in legal:
+              rel = p.as_posix()
+              if rel == self_path or '.git' in p.parts or not p.is_file() or p.name in legal:
                   continue
-              if 'simpmusic' in p.as_posix().lower():
-                  hits.append(f'path: {p.as_posix()}')
+              if legacy_name in rel.lower():
+                  hits.append(f'path: {rel}')
                   continue
               if p.suffix.lower() not in text_ext and p.name not in special:
                   continue
@@ -53,12 +56,12 @@ jobs:
               except (UnicodeDecodeError, OSError):
                   continue
               if any(token in text for token in forbidden):
-                  hits.append(p.as_posix())
+                  hits.append(rel)
 
           if hits:
               print('\n'.join(hits[:250]))
               raise SystemExit(f'Found {len(hits)} legacy identity reference(s)')
-          print('Identity audit passed: no legacy SimpMusic identity outside legal notices.')
+          print('Identity audit passed.')
           PY
 
       - name: Generate library definitions
