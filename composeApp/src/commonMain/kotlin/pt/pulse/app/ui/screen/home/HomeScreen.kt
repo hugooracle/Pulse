@@ -104,7 +104,6 @@ import pt.pulse.app.extension.artworkScrimBrush
 import pt.pulse.app.extension.isScrollingUp
 import pt.pulse.app.extension.rgbFactor
 import pt.pulse.app.getPlatform
-import pt.pulse.app.ui.component.BlogPromoDialog
 import pt.pulse.app.ui.component.CenterLoadingBox
 import pt.pulse.app.ui.component.Chip
 import pt.pulse.app.ui.component.DropdownButton
@@ -195,9 +194,6 @@ import pulse.composeapp.generated.resources.warning
 import pulse.composeapp.generated.resources.welcome_back
 import pulse.composeapp.generated.resources.what_is_best_choice_today
 import pulse.composeapp.generated.resources.workout
-
-// DataStore key for blog-promo one-shot dialog. Bump the suffix (v2, v3, …) to re-promote.
-private const val BLOG_PROMO_KEY = "blog_promo_v1_seen"
 
 private val listOfHomeChip =
     listOf(
@@ -298,9 +294,6 @@ fun HomeScreen(
     var showRequestShareLyricsPermissions by rememberSaveable {
         mutableStateOf(false)
     }
-    var showBlogPromoDialog by rememberSaveable {
-        mutableStateOf(false)
-    }
 
     var topAppBarHeightPx by rememberSaveable {
         mutableIntStateOf(0)
@@ -357,11 +350,6 @@ fun HomeScreen(
             showReviewDialog = true
         } else if ((openAppTime == 1 || openAppTime % 15 == 0) && openAppTime <= 60 && !shareLyricsPermissions) {
             showRequestShareLyricsPermissions = true
-        } else if (openAppTime == 5) {
-            // Blog promo: one-shot after 5 app opens, bump key suffix to re-promote later
-            if (sharedViewModel.getString(BLOG_PROMO_KEY) != "true") {
-                showBlogPromoDialog = true
-            }
         } else {
             showReviewDialog = false
             showRequestShareLyricsPermissions = false
@@ -413,19 +401,6 @@ fun HomeScreen(
                     isDismissOnly = false,
                 )
                 showReviewDialog = false
-            },
-        )
-    }
-
-    if (showBlogPromoDialog) {
-        BlogPromoDialog(
-            onDismissRequest = {
-                sharedViewModel.putString(BLOG_PROMO_KEY, "true")
-                showBlogPromoDialog = false
-            },
-            onVisitBlog = {
-                sharedViewModel.putString(BLOG_PROMO_KEY, "true")
-                showBlogPromoDialog = false
             },
         )
     }
