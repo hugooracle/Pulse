@@ -69,11 +69,11 @@ jobs:
           print('Identity audit passed.')
           PY
 
-      - name: Generate library definitions
-        run: ./gradlew exportLibraryDefinitions --stacktrace
-
       - name: Build Android debug APK
         run: ./gradlew :androidApp:assembleDebug --stacktrace
+
+      - name: Generate library definitions
+        run: ./gradlew exportLibraryDefinitions --stacktrace
 
       - name: Upload debug APK
         if: success()
