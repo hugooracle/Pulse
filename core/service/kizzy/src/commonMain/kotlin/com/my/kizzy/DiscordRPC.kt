@@ -29,13 +29,12 @@ class DiscordRPC(
             details = song.title,
             state = song.artistName?.joinToString(", "),
             largeImage = song.thumbnails?.let { RpcImage.ExternalImage(it) },
-
+            smallImage = null,
             largeText = song.albumName,
             smallText = song.artistName?.firstOrNull(),
             buttons =
                 listOf(
                     "Ouvir no YouTube Music" to "https://music.youtube.com/watch?v=${song.videoId}",
-
                 ),
             type = Type.LISTENING,
             since = currentTime,
