@@ -76,7 +76,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -186,7 +185,6 @@ import pulse.composeapp.generated.resources.audio_delay
 import pulse.composeapp.generated.resources.audio_delay_description
 import pulse.composeapp.generated.resources.audio_reverb
 import pulse.composeapp.generated.resources.audio_reverb_description
-import pulse.composeapp.generated.resources.author
 import pulse.composeapp.generated.resources.auto_backup
 import pulse.composeapp.generated.resources.auto_backup_description
 import pulse.composeapp.generated.resources.auto_check_for_update
@@ -199,9 +197,6 @@ import pulse.composeapp.generated.resources.backup_downloaded_description
 import pulse.composeapp.generated.resources.backup_frequency
 import pulse.composeapp.generated.resources.balance_media_loudness
 import pulse.composeapp.generated.resources.better_lyrics
-import pulse.composeapp.generated.resources.blog_notification_description
-import pulse.composeapp.generated.resources.blog_notification_title
-import pulse.composeapp.generated.resources.buy_me_a_coffee
 import pulse.composeapp.generated.resources.cancel
 import pulse.composeapp.generated.resources.animated_artwork_info
 import pulse.composeapp.generated.resources.canvas_info
@@ -237,10 +232,7 @@ import pulse.composeapp.generated.resources.daily
 import pulse.composeapp.generated.resources.database
 import pulse.composeapp.generated.resources.default_models
 import pulse.composeapp.generated.resources.description_and_licenses
-import pulse.composeapp.generated.resources.developer_blog
-import pulse.composeapp.generated.resources.developer_blog_tagline
 import pulse.composeapp.generated.resources.discord_integration
-import pulse.composeapp.generated.resources.donation
 import pulse.composeapp.generated.resources.download_quality
 import pulse.composeapp.generated.resources.downloaded_cache
 import pulse.composeapp.generated.resources.enable_animated_artwork
@@ -324,7 +316,6 @@ import pulse.composeapp.generated.resources.lyrics_style_apple_music
 import pulse.composeapp.generated.resources.lyrics_style_classic
 import pulse.composeapp.generated.resources.main_lyrics_provider
 import pulse.composeapp.generated.resources.manage_your_youtube_accounts
-import pulse.composeapp.generated.resources.maxrave_dev
 import pulse.composeapp.generated.resources.monthly
 import pulse.composeapp.generated.resources.never
 import pulse.composeapp.generated.resources.no_account
@@ -438,7 +429,6 @@ fun SettingScreen(
     val platformContext = LocalPlatformContext.current
     val pl = com.mohamedrejeb.calf.core.LocalPlatformContext.current
     val localDensity = LocalDensity.current
-    val uriHandler = LocalUriHandler.current
     val coroutineScope = rememberCoroutineScope()
 
     var width by rememberSaveable { mutableIntStateOf(0) }
@@ -501,7 +491,6 @@ fun SettingScreen(
     val videoDownloadQuality by viewModel.videoDownloadQuality.collectAsStateWithLifecycle()
     val keepYoutubePlaylistOffline by viewModel.keepYouTubePlaylistOffline.collectAsStateWithLifecycle()
     val localTrackingEnabled by viewModel.localTrackingEnabled.collectAsStateWithLifecycle(initialValue = false)
-    val blogNotificationEnabled by viewModel.blogNotificationEnabled.collectAsStateWithLifecycle()
     val combineLocalAndYouTubeLiked by viewModel.combineLocalAndYouTubeLiked.collectAsStateWithLifecycle()
     val playVideo by remember { viewModel.playVideoInsteadOfAudio.map { it == TRUE } }.collectAsStateWithLifecycle(initialValue = false)
     val radioAudioOnly by remember { viewModel.radioAudioOnly.map { it == TRUE } }.collectAsStateWithLifecycle(initialValue = false)
@@ -2626,34 +2615,6 @@ fun SettingScreen(
                     subtitle = checkForUpdateSubtitle,
                     onClick = {
                         sharedViewModel.checkForUpdate()
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.author),
-                    subtitle = stringResource(Res.string.maxrave_dev),
-                    onClick = {
-                        uriHandler.openUri("https://github.com/maxrave-dev")
-                    },
-                )
-                SettingItem(
-                    title = stringResource(Res.string.developer_blog),
-                    subtitle = stringResource(Res.string.developer_blog_tagline),
-                    onClick = {
-                        uriHandler.openUri("https://maxrave.dev")
-                    },
-                )
-                if (getPlatform() == Platform.Android) {
-                    SettingItem(
-                        title = stringResource(Res.string.blog_notification_title),
-                        subtitle = stringResource(Res.string.blog_notification_description),
-                        switch = (blogNotificationEnabled to { viewModel.setBlogNotificationEnabled(it) }),
-                    )
-                }
-                SettingItem(
-                    title = stringResource(Res.string.buy_me_a_coffee),
-                    subtitle = stringResource(Res.string.donation),
-                    onClick = {
-                        uriHandler.openUri("https://github.com/sponsors/maxrave-dev")
                     },
                 )
                 SettingItem(

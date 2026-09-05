@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.net.toUri
 import androidx.core.os.LocaleListCompat
-import androidx.lifecycle.lifecycleScope
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
@@ -31,18 +30,15 @@ import pt.pulse.core.common.STATUS_DONE
 import pt.pulse.core.common.SUPPORTED_LANGUAGE
 import pt.pulse.core.common.SUPPORTED_LOCATION
 import pt.pulse.core.domain.data.model.intent.GenericIntent
-import pt.pulse.core.domain.manager.DataStoreManager
 import pt.pulse.core.domain.mediaservice.handler.MediaPlayerHandler
 import pt.pulse.core.domain.mediaservice.handler.ToastType
 import pt.pulse.core.logger.Logger
 import pt.pulse.core.media3.di.setServiceActivitySession
 import pt.pulse.app.di.viewModelModule
-import pt.pulse.app.service.rss.RssFeedNotifyWork
 import pt.pulse.app.service.test.notification.NotifyWork
 import pt.pulse.app.utils.ComposeResUtils
 import pt.pulse.app.utils.VersionManager
 import pt.pulse.app.viewModel.SharedViewModel
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
@@ -57,7 +53,6 @@ import java.util.concurrent.TimeUnit
 class MainActivity : AppCompatActivity() {
     val viewModel: SharedViewModel by inject()
     val mediaPlayerHandler by inject<MediaPlayerHandler>()
-    val dataStoreManager: DataStoreManager by inject()
 
     private var mBound = false
     private var shouldUnbind = false
@@ -204,30 +199,7 @@ class MainActivity : AppCompatActivity() {
             ExistingPeriodicWorkPolicy.KEEP,
             request,
         )
-        lifecycleScope.launch {
-            dataStoreManager.blogNotificationEnabled.collect { enabled ->
-                if (enabled == DataStoreManager.TRUE) {
-                    val rssRequest =
-                        PeriodicWorkRequestBuilder<RssFeedNotifyWork>(
-                            24L,
-                            TimeUnit.HOURS,
-                        ).addTag("Blog RSS Worker")
-                            .setConstraints(
-                                Constraints
-                                    .Builder()
-                                    .setRequiredNetworkType(NetworkType.CONNECTED)
-                                    .build(),
-                            ).build()
-                    WorkManager.getInstance(this@MainActivity).enqueueUniquePeriodicWork(
-                        "Blog RSS Worker",
-                        ExistingPeriodicWorkPolicy.KEEP,
-                        rssRequest,
-                    )
-                } else {
-                    WorkManager.getInstance(this@MainActivity).cancelUniqueWork("Blog RSS Worker")
-                }
-            }
-        }
+
 
         if (!EasyPermissions.hasPermissions(this, Manifest.permission.POST_NOTIFICATIONS)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
