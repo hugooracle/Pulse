@@ -1,0 +1,16 @@
+package pt.pulse.core.domain.data.model.mediaService
+
+import pt.pulse.core.domain.data.model.searchResult.songs.Album
+import pt.pulse.core.domain.data.model.searchResult.songs.Artist
+import pt.pulse.core.domain.data.model.searchResult.songs.Thumbnail
+
+data class Song(
+    val title: String?,
+    val artists: List<Artist>?,
+    val duration: Long,
+    val lyrics: Any,
+    val album: Album,
+    val videoId: String,
+    val thumbnail: Thumbnail?,
+    val isLocal: Boolean,
+)

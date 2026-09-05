@@ -8144,7 +8144,7 @@
             ]
         },
         {
-            "uniqueId": "org.simpmusic.gemini-kotlin:openai-client",
+            "uniqueId": "pt.pulse.service.gemini-kotlin:openai-client",
             "funding": [
                 
             ],
@@ -8167,7 +8167,7 @@
             ]
         },
         {
-            "uniqueId": "org.simpmusic.gemini-kotlin:openai-core",
+            "uniqueId": "pt.pulse.service.gemini-kotlin:openai-core",
             "funding": [
                 
             ],
