@@ -57,7 +57,7 @@ import pt.pulse.app.ui.component.capture.rememberCaptureController
 import pt.pulse.app.ui.icon.Download
 import pt.pulse.app.ui.icon.KeyboardArrowDown
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.screen.player.content.applemusic.appleMusicVerticalFadeEdges
 import kotlinx.coroutines.launch
 import multiplatform.network.cmptoast.ToastGravity
@@ -263,7 +263,7 @@ private fun ShareLyricsSheetHeader(
             contentAlignment = Alignment.Center,
         ) {
             Icon(
-                imageVector = SimpIcons.KeyboardArrowDown,
+                imageVector = PulseIcons.KeyboardArrowDown,
                 contentDescription = null,
                 tint = content,
                 modifier = Modifier.size(26.dp),
@@ -428,7 +428,7 @@ private fun ShareLyricsPreview(
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             ShareLyricsPill(
                 text = stringResource(Res.string.share_lyrics_save),
-                icon = SimpIcons.Download,
+                icon = PulseIcons.Download,
                 container = Color.Transparent,
                 label = content,
                 outlined = true,
@@ -436,7 +436,7 @@ private fun ShareLyricsPreview(
             )
             ShareLyricsPill(
                 text = stringResource(Res.string.share_lyrics_share_action),
-                icon = SimpIcons.Share,
+                icon = PulseIcons.Share,
                 container = content,
                 label = onFilled,
                 onClick = onShare,

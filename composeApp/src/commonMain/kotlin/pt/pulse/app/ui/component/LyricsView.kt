@@ -116,7 +116,7 @@ import pt.pulse.app.extension.parseRichSyncWords
 import pt.pulse.app.ui.icon.Info
 import pt.pulse.app.ui.icon.MoreVert
 import pt.pulse.app.ui.icon.QueueMusic
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.NowPlayingScreenData
@@ -1383,7 +1383,7 @@ fun FullscreenLyricsSheet(
                             onClick = { showShareLyricsSheet = true },
                         ) {
                             Icon(
-                                imageVector = SimpIcons.Share,
+                                imageVector = PulseIcons.Share,
                                 contentDescription = stringResource(Res.string.share_lyrics),
                                 tint = Color.White,
                             )
@@ -1395,7 +1395,7 @@ fun FullscreenLyricsSheet(
                         onClick = { showNowPlayingSheet = true },
                     ) {
                         Icon(
-                            imageVector = SimpIcons.MoreVert,
+                            imageVector = PulseIcons.MoreVert,
                             contentDescription = "",
                             tint = Color.White,
                         )
@@ -1666,7 +1666,7 @@ fun FullscreenLyricsSheet(
                                             showControlButtons = true
                                         },
                                     ) {
-                                        Icon(imageVector = SimpIcons.Info, tint = Color.White, contentDescription = "")
+                                        Icon(imageVector = PulseIcons.Info, tint = Color.White, contentDescription = "")
                                     }
                                     Row(
                                         Modifier.align(Alignment.CenterEnd),
@@ -1686,7 +1686,7 @@ fun FullscreenLyricsSheet(
                                             },
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.QueueMusic,
+                                                imageVector = PulseIcons.QueueMusic,
                                                 tint = Color.White,
                                                 contentDescription = "",
                                             )

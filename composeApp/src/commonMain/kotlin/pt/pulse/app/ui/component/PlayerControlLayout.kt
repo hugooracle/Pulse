@@ -29,7 +29,7 @@ import pt.pulse.app.ui.icon.PlayCircle
 import pt.pulse.app.ui.icon.Repeat
 import pt.pulse.app.ui.icon.RepeatOne
 import pt.pulse.app.ui.icon.Shuffle
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.SkipNext
 import pt.pulse.app.ui.icon.SkipPrevious
 import pt.pulse.app.ui.theme.seed
@@ -83,14 +83,14 @@ fun PlayerControlLayout(
                 Crossfade(targetState = controllerState.isShuffle, label = "Shuffle Button") { isShuffle ->
                     if (!isShuffle) {
                         Icon(
-                            imageVector = SimpIcons.Shuffle,
+                            imageVector = PulseIcons.Shuffle,
                             tint = contentColor,
                             contentDescription = "",
                             modifier = Modifier.size(smallIcon.first),
                         )
                     } else {
                         Icon(
-                            imageVector = SimpIcons.Shuffle,
+                            imageVector = PulseIcons.Shuffle,
                             tint = activeColor,
                             contentDescription = "",
                             modifier = Modifier.size(smallIcon.first),
@@ -117,7 +117,7 @@ fun PlayerControlLayout(
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(
-                    imageVector = SimpIcons.SkipPrevious,
+                    imageVector = PulseIcons.SkipPrevious,
                     tint = if (controllerState.isPreviousAvailable) contentColor else contentColor.copy(alpha = 0.4f),
                     contentDescription = "",
                     modifier = Modifier.size(mediumIcon.first),
@@ -142,14 +142,14 @@ fun PlayerControlLayout(
                 Crossfade(targetState = controllerState.isPlaying) { isPlaying ->
                     if (!isPlaying) {
                         Icon(
-                            imageVector = if (plainPlayPause) SimpIcons.PlayArrow else SimpIcons.PlayCircle,
+                            imageVector = if (plainPlayPause) PulseIcons.PlayArrow else PulseIcons.PlayCircle,
                             tint = contentColor,
                             contentDescription = "",
                             modifier = Modifier.size(bigIcon.first),
                         )
                     } else {
                         Icon(
-                            imageVector = if (plainPlayPause) SimpIcons.Pause else SimpIcons.PauseCircle,
+                            imageVector = if (plainPlayPause) PulseIcons.Pause else PulseIcons.PauseCircle,
                             tint = contentColor,
                             contentDescription = "",
                             modifier = Modifier.size(bigIcon.first),
@@ -176,7 +176,7 @@ fun PlayerControlLayout(
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(
-                    imageVector = SimpIcons.SkipNext,
+                    imageVector = PulseIcons.SkipNext,
                     tint = if (controllerState.isNextAvailable) contentColor else contentColor.copy(alpha = 0.4f),
                     contentDescription = "",
                     modifier = Modifier.size(mediumIcon.first),
@@ -201,7 +201,7 @@ fun PlayerControlLayout(
                     when (rs) {
                         is RepeatState.None -> {
                             Icon(
-                                imageVector = SimpIcons.Repeat,
+                                imageVector = PulseIcons.Repeat,
                                 tint = contentColor,
                                 contentDescription = "",
                                 modifier = Modifier.size(smallIcon.first),
@@ -210,7 +210,7 @@ fun PlayerControlLayout(
 
                         RepeatState.All -> {
                             Icon(
-                                imageVector = SimpIcons.Repeat,
+                                imageVector = PulseIcons.Repeat,
                                 tint = activeColor,
                                 contentDescription = "",
                                 modifier = Modifier.size(smallIcon.first),
@@ -219,7 +219,7 @@ fun PlayerControlLayout(
 
                         RepeatState.One -> {
                             Icon(
-                                imageVector = SimpIcons.RepeatOne,
+                                imageVector = PulseIcons.RepeatOne,
                                 tint = activeColor,
                                 contentDescription = "",
                                 modifier = Modifier.size(smallIcon.first),

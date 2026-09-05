@@ -9,7 +9,7 @@ import pt.pulse.app.ui.icon.Home
 import pt.pulse.app.ui.icon.LibraryMusic
 import pt.pulse.app.ui.icon.Search
 import pt.pulse.app.ui.icon.Sensors
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.AnalyticsDestination
 import pt.pulse.app.ui.navigation.destination.home.HomeDestination
 import pt.pulse.app.ui.navigation.destination.library.LibraryDestination
@@ -50,7 +50,7 @@ sealed class BottomNavScreen(
         title = Res.string.home,
         icon = {
             Icon(
-                SimpIcons.Home,
+                PulseIcons.Home,
                 contentDescription = null,
             )
         },
@@ -62,7 +62,7 @@ sealed class BottomNavScreen(
         title = Res.string.search,
         icon = {
             Icon(
-                SimpIcons.Search,
+                PulseIcons.Search,
                 contentDescription = null,
             )
         },
@@ -74,7 +74,7 @@ sealed class BottomNavScreen(
         title = Res.string.library,
         icon = {
             Icon(
-                imageVector = SimpIcons.LibraryMusic,
+                imageVector = PulseIcons.LibraryMusic,
                 contentDescription = null,
             )
         },
@@ -87,7 +87,7 @@ sealed class BottomNavScreen(
         title = Res.string.analytics,
         icon = {
             Icon(
-                imageVector = SimpIcons.AutoGraph,
+                imageVector = PulseIcons.AutoGraph,
                 contentDescription = null,
             )
         },
@@ -102,7 +102,7 @@ sealed class BottomNavScreen(
         title = Res.string.mix,
         icon = {
             Icon(
-                imageVector = SimpIcons.Sensors,
+                imageVector = PulseIcons.Sensors,
                 contentDescription = null,
             )
         },

@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import pt.pulse.app.ui.icon.Download
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.screen.home.wrapped.WrappedTokens
 import pt.pulse.app.ui.screen.home.wrapped.formatCount
 import pt.pulse.app.ui.screen.home.wrapped.wholeMinutes
@@ -336,7 +336,7 @@ private fun PosterLabel(
  * the ink the panel writes in (`onSurface`) and the logo prints back through it in the panel's own
  * ground (`surface`), which is what keeps the mark readable whatever the artwork seeded.
  *
- * `Res.drawable.mono` is the app's logo, not an icon: `SimpIcons` is the Material Symbols set and
+ * `Res.drawable.mono` is the app's logo, not an icon: `PulseIcons` is the Material Symbols set and
  * has no wordmark in it, and CLAUDE.md keeps the two logos as drawables on purpose. This is the
  * only `painterResource` left in the file.
  */
@@ -417,14 +417,14 @@ private fun ShareActions(
             shape = CircleShape,
             contentPadding = ACTION_CONTENT_PADDING,
         ) {
-            ActionContent(SimpIcons.Download, stringResource(Res.string.wrapped_save))
+            ActionContent(PulseIcons.Download, stringResource(Res.string.wrapped_save))
         }
         FilledTonalButton(
             onClick = onShare,
             shape = CircleShape,
             contentPadding = ACTION_CONTENT_PADDING,
         ) {
-            ActionContent(SimpIcons.Share, stringResource(Res.string.wrapped_share))
+            ActionContent(PulseIcons.Share, stringResource(Res.string.wrapped_share))
         }
     }
 }

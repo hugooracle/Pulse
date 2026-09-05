@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import pt.pulse.app.ui.icon.Check
 import pt.pulse.app.ui.icon.KeyboardArrowDown
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.EQUALIZER_BAND_LABELS
 import pt.pulse.app.viewModel.SettingsViewModel
@@ -150,7 +150,7 @@ fun EqualizerSection(viewModel: SettingsViewModel = koinViewModel()) {
                         color = MaterialTheme.colorScheme.onSurface,
                     )
                     Icon(
-                        imageVector = SimpIcons.KeyboardArrowDown,
+                        imageVector = PulseIcons.KeyboardArrowDown,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.size(20.dp),
@@ -169,7 +169,7 @@ fun EqualizerSection(viewModel: SettingsViewModel = koinViewModel()) {
                                 // instead of shifting sideways as the tick moves.
                                 if (preset.name == activePreset?.name) {
                                     Icon(
-                                        imageVector = SimpIcons.Check,
+                                        imageVector = PulseIcons.Check,
                                         contentDescription = null,
                                         tint = MaterialTheme.colorScheme.onSurface,
                                         modifier = Modifier.size(18.dp),

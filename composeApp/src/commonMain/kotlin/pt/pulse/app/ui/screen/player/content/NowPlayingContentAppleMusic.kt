@@ -92,7 +92,7 @@ import pt.pulse.app.ui.screen.player.content.applemusic.AppleMusicTypography
 import pt.pulse.app.ui.icon.Forward5
 import pt.pulse.app.ui.icon.Fullscreen
 import pt.pulse.app.ui.icon.Replay5
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.Subtitles
 import pt.pulse.app.ui.icon.SubtitlesOff
 import pt.pulse.app.ui.screen.player.content.applemusic.AppleMusicView
@@ -859,7 +859,7 @@ private fun AppleMusicArtworkPage(
                                         onClick = { actions.onEnterFullscreenVideo() },
                                         modifier = Modifier.align(Alignment.TopEnd),
                                     ) {
-                                        Icon(imageVector = SimpIcons.Fullscreen, contentDescription = "", tint = Color.White)
+                                        Icon(imageVector = PulseIcons.Fullscreen, contentDescription = "", tint = Color.White)
                                     }
                                     Row(
                                         modifier = Modifier.align(Alignment.Center).fillMaxWidth(),
@@ -870,7 +870,7 @@ private fun AppleMusicArtworkPage(
                                             modifier = Modifier.size(48.dp).clip(CircleShape),
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.Replay5,
+                                                imageVector = PulseIcons.Replay5,
                                                 contentDescription = "",
                                                 tint = Color.White,
                                                 modifier = Modifier.size(36.dp).alpha(0.8f),
@@ -881,7 +881,7 @@ private fun AppleMusicArtworkPage(
                                             modifier = Modifier.size(48.dp).clip(CircleShape),
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.Forward5,
+                                                imageVector = PulseIcons.Forward5,
                                                 contentDescription = "",
                                                 tint = Color.White,
                                                 modifier = Modifier.size(36.dp).alpha(0.8f),
@@ -894,7 +894,7 @@ private fun AppleMusicArtworkPage(
                                             modifier = Modifier.align(Alignment.BottomEnd),
                                         ) {
                                             Icon(
-                                                imageVector = if (showSubtitle) SimpIcons.SubtitlesOff else SimpIcons.Subtitles,
+                                                imageVector = if (showSubtitle) PulseIcons.SubtitlesOff else PulseIcons.Subtitles,
                                                 contentDescription = "",
                                                 tint = Color.White,
                                             )

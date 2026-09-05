@@ -55,7 +55,7 @@ import pt.pulse.app.ui.component.EndOfPage
 import pt.pulse.app.ui.component.LiquidGlassIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.Check
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.ListenTogetherSettingsViewModel
 import org.jetbrains.compose.resources.stringResource
@@ -287,7 +287,7 @@ fun ListenTogetherSettingsScreen(
         // the backdrop source, exactly the arrangement the main Listen Together page uses.
         LiquidGlassIconButton(
             backdrop = backdrop,
-            imageVector = SimpIcons.ArrowBackIosNew,
+            imageVector = PulseIcons.ArrowBackIosNew,
             tint = MaterialTheme.colorScheme.onSurface,
             shape = RoundedCornerShape(24.dp),
             modifier =
@@ -350,7 +350,7 @@ private fun ServerOption(
             contentAlignment = Alignment.Center,
         ) {
             if (selected) {
-                Icon(SimpIcons.Check, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(16.dp))
+                Icon(PulseIcons.Check, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(16.dp))
             }
         }
         Column(Modifier.weight(1f)) {

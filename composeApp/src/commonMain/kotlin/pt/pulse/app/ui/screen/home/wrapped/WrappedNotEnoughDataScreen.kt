@@ -29,7 +29,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.viewModel.WrappedUiState
 import org.jetbrains.compose.resources.stringResource
 import pulse.composeapp.generated.resources.Res
@@ -78,7 +78,7 @@ fun WrappedNotEnoughDataScreen(
             // be a surface. The reel's own close button floats over artwork, which is the case
             // glass exists for.
             RippleIconButton(
-                imageVector = SimpIcons.ArrowBackIosNew,
+                imageVector = PulseIcons.ArrowBackIosNew,
                 tint = MaterialTheme.colorScheme.onSurface,
                 onClick = onBack,
             )

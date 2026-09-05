@@ -34,7 +34,7 @@ import pt.pulse.core.domain.data.player.ReverbPreset
 import pt.pulse.app.ui.component.Chip
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.Help
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.SettingsViewModel
 import org.jetbrains.compose.resources.StringResource
@@ -241,7 +241,7 @@ fun ReverbSection(viewModel: SettingsViewModel = koinViewModel()) {
                 }
             }
             RippleIconButton(
-                imageVector = SimpIcons.Help,
+                imageVector = PulseIcons.Help,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 onClick = { showHelp = true },
             )

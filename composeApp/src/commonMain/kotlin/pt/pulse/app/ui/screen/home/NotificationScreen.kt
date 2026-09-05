@@ -71,7 +71,7 @@ import pt.pulse.app.ui.component.rememberHolderPainter
 import pt.pulse.app.ui.component.rememberNowPlayingGlowTint
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.RssFeed
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.theme.typo
@@ -207,7 +207,7 @@ fun NotificationScreen(
                 },
                 navigationIcon = {
                     RippleIconButton(
-                        imageVector = SimpIcons.ArrowBackIosNew,
+                        imageVector = PulseIcons.ArrowBackIosNew,
                         tint = MaterialTheme.colorScheme.onSurface,
                     ) {
                         navController.navigateUp()
@@ -340,7 +340,7 @@ fun BlogNotificationItem(notification: NotificationEntity) {
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(
-                    imageVector = SimpIcons.RssFeed,
+                    imageVector = PulseIcons.RssFeed,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(26.dp),

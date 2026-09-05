@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import pt.pulse.core.domain.mediaservice.handler.ControlState
 import pt.pulse.app.ui.icon.Pause
 import pt.pulse.app.ui.icon.PlayArrow
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.SkipNext
 import pt.pulse.app.ui.icon.SkipPrevious
 import pt.pulse.app.viewModel.UIEvent
@@ -118,7 +118,7 @@ fun ExpressiveTransportRow(
         ) {
             Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
                 Icon(
-                    imageVector = SimpIcons.SkipPrevious,
+                    imageVector = PulseIcons.SkipPrevious,
                     contentDescription = "",
                     tint =
                         colorScheme.onSecondaryContainer.copy(
@@ -170,7 +170,7 @@ fun ExpressiveTransportRow(
                         ) { isPlaying ->
                             Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
                                 Icon(
-                                    imageVector = if (isPlaying) SimpIcons.Pause else SimpIcons.PlayArrow,
+                                    imageVector = if (isPlaying) PulseIcons.Pause else PulseIcons.PlayArrow,
                                     contentDescription = "",
                                     tint = colorScheme.onPrimary,
                                     modifier = Modifier.size(36.dp),
@@ -198,7 +198,7 @@ fun ExpressiveTransportRow(
         ) {
             Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
                 Icon(
-                    imageVector = SimpIcons.SkipNext,
+                    imageVector = PulseIcons.SkipNext,
                     contentDescription = "",
                     tint =
                         colorScheme.onSecondaryContainer.copy(

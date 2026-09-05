@@ -22,7 +22,7 @@ import pt.pulse.app.extension.NonLazyGrid
 import pt.pulse.app.ui.icon.Downloading
 import pt.pulse.app.ui.icon.Favorite
 import pt.pulse.app.ui.icon.Insights
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.TrendingUp
 import pt.pulse.app.ui.navigation.destination.library.LibraryDynamicPlaylistDestination
 import pt.pulse.app.ui.screen.library.LibraryDynamicPlaylistType
@@ -148,28 +148,28 @@ data class LibraryTilingState(
             LibraryTilingState(
                 title = Res.string.favorite,
                 containerColor = Color(0xffff99ae),
-                icon = SimpIcons.Favorite,
+                icon = PulseIcons.Favorite,
                 iconColor = Color(0xffD10000),
             )
         val Followed =
             LibraryTilingState(
                 title = Res.string.followed,
                 containerColor = Color(0xffFFEB3B),
-                icon = SimpIcons.Insights,
+                icon = PulseIcons.Insights,
                 iconColor = Color.Black,
             )
         val MostPlayed =
             LibraryTilingState(
                 title = Res.string.most_played,
                 containerColor = Color(0xff00BCD4),
-                icon = SimpIcons.TrendingUp,
+                icon = PulseIcons.TrendingUp,
                 iconColor = Color.Black,
             )
         val Downloaded =
             LibraryTilingState(
                 title = Res.string.downloaded,
                 containerColor = Color(0xff4CAF50),
-                icon = SimpIcons.Downloading,
+                icon = PulseIcons.Downloading,
                 iconColor = Color.Black,
             )
     }

@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import pt.pulse.app.ui.icon.CloudOff
 import pt.pulse.app.ui.icon.Download
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import org.jetbrains.compose.resources.stringResource
 import pulse.composeapp.generated.resources.Res
@@ -67,7 +67,7 @@ fun OfflineErrorState(
                 .padding(horizontal = 24.dp),
         ) {
             Icon(
-                imageVector = SimpIcons.CloudOff,
+                imageVector = PulseIcons.CloudOff,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f),
                 modifier = Modifier.size(80.dp),
@@ -110,7 +110,7 @@ fun OfflineErrorState(
                 ),
             ) {
                 Icon(
-                    imageVector = SimpIcons.Download,
+                    imageVector = PulseIcons.Download,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier.size(18.dp),

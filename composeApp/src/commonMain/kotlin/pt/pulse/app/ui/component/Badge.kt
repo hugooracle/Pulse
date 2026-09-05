@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.pulse.app.ui.icon.Explicit
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import org.jetbrains.compose.resources.stringResource
 import pulse.composeapp.generated.resources.Res
@@ -32,7 +32,7 @@ fun ExplicitBadge(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center,
     ) {
         Icon(
-            imageVector = SimpIcons.Explicit,
+            imageVector = PulseIcons.Explicit,
             "Explicit",
             tint = Color.LightGray,
         )

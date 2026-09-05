@@ -46,7 +46,7 @@ import pt.pulse.app.ui.component.selection.SelectedSongsBottomSheet
 import pt.pulse.app.ui.component.selection.SongSelectionTopAppBar
 import pt.pulse.app.ui.component.selection.rememberSongSelectionState
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.navigation.destination.list.PlaylistDestination
@@ -246,7 +246,7 @@ fun RecentlySongsScreen(
             navigationIcon = {
                 Box(Modifier.padding(horizontal = 5.dp)) {
                     RippleIconButton(
-                        SimpIcons.ArrowBackIosNew,
+                        PulseIcons.ArrowBackIosNew,
                         Modifier.size(32.dp),
                         true,
                         tint = MaterialTheme.colorScheme.onSurface,

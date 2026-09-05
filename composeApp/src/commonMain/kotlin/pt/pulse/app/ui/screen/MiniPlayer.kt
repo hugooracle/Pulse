@@ -130,7 +130,7 @@ import pt.pulse.app.ui.component.rememberHolderPainter
 import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.PictureInPictureAlt
 import pt.pulse.app.ui.icon.QueueMusic
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.VolumeOff
 import pt.pulse.app.ui.icon.VolumeUp
 import pt.pulse.app.ui.theme.LocalIsDarkTheme
@@ -912,7 +912,7 @@ fun MiniPlayer(
                         },
                     ) {
                         Icon(
-                            imageVector = SimpIcons.QueueMusic,
+                            imageVector = PulseIcons.QueueMusic,
                             tint = textColor,
                             contentDescription = "",
                         )
@@ -921,7 +921,7 @@ fun MiniPlayer(
                     if (getPlatform() == Platform.Desktop) {
                         IconButton(onClick = { toggleMiniPlayer() }) {
                             Icon(
-                                imageVector = SimpIcons.PictureInPictureAlt,
+                                imageVector = PulseIcons.PictureInPictureAlt,
                                 tint = textColor,
                                 contentDescription = "Mini Player",
                             )
@@ -974,9 +974,9 @@ fun MiniPlayer(
                             Icon(
                                 imageVector =
                                     if (controllerState.volume > 0f) {
-                                        SimpIcons.VolumeUp
+                                        PulseIcons.VolumeUp
                                     } else {
-                                        SimpIcons.VolumeOff
+                                        PulseIcons.VolumeOff
                                     },
                                 tint = textColor,
                                 contentDescription = if (controllerState.volume > 0f) "Mute" else "Unmute",
@@ -1100,9 +1100,9 @@ fun MiniPlayer(
                                     Icon(
                                         imageVector =
                                             if (controllerState.volume > 0f) {
-                                                SimpIcons.VolumeUp
+                                                PulseIcons.VolumeUp
                                             } else {
-                                                SimpIcons.VolumeOff
+                                                PulseIcons.VolumeOff
                                             },
                                         tint = textColor.copy(alpha = 0.7f),
                                         contentDescription = null,
@@ -1113,7 +1113,7 @@ fun MiniPlayer(
                         }
                     }
                     IconButton(onClick = { onClose() }) {
-                        Icon(SimpIcons.Close, "", tint = textColor)
+                        Icon(PulseIcons.Close, "", tint = textColor)
                     }
                 }
             }

@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import pt.pulse.app.ui.icon.Close
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.viewModel.SharedViewModel
 import java.awt.Cursor
 import java.awt.MouseInfo
@@ -134,7 +134,7 @@ fun MiniPlayerRoot(
                         .size(24.dp),
             ) {
                 Icon(
-                    imageVector = SimpIcons.Close,
+                    imageVector = PulseIcons.Close,
                     contentDescription = "Close",
                     tint = Color.White.copy(alpha = 0.7f),
                     modifier = Modifier.size(16.dp),

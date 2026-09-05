@@ -66,7 +66,7 @@ import pt.pulse.app.ui.icon.PlaylistAdd
 import pt.pulse.app.ui.icon.Repeat
 import pt.pulse.app.ui.icon.RepeatOne
 import pt.pulse.app.ui.icon.Shuffle
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.screen.player.content.NowPlayingContentActions
 import pt.pulse.app.ui.screen.player.content.NowPlayingContentState
 import pt.pulse.app.viewModel.UIEvent
@@ -296,7 +296,7 @@ internal fun AppleMusicQueueView(
     }
 }
 
-/** [SimpIcons.Info] [SimpIcons.PlaylistAdd] [SimpIcons.Shuffle] [SimpIcons.Repeat] — exactly, per the corrected spec. */
+/** [PulseIcons.Info] [PulseIcons.PlaylistAdd] [PulseIcons.Shuffle] [PulseIcons.Repeat] — exactly, per the corrected spec. */
 @Composable
 private fun AppleMusicQueuePillsRow(
     state: NowPlayingContentState,
@@ -311,7 +311,7 @@ private fun AppleMusicQueuePillsRow(
         horizontalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         AppleMusicQueuePill(
-            icon = SimpIcons.Info,
+            icon = PulseIcons.Info,
             active = false,
             activeContainer = activePillContainer,
             activeContent = activePillContent,
@@ -319,7 +319,7 @@ private fun AppleMusicQueuePillsRow(
             modifier = Modifier.weight(1f),
         )
         AppleMusicQueuePill(
-            icon = SimpIcons.PlaylistAdd,
+            icon = PulseIcons.PlaylistAdd,
             active = false,
             activeContainer = activePillContainer,
             activeContent = activePillContent,
@@ -327,7 +327,7 @@ private fun AppleMusicQueuePillsRow(
             modifier = Modifier.weight(1f),
         )
         AppleMusicQueuePill(
-            icon = SimpIcons.Shuffle,
+            icon = PulseIcons.Shuffle,
             active = state.controllerState.isShuffle,
             activeContainer = activePillContainer,
             activeContent = activePillContent,
@@ -335,7 +335,7 @@ private fun AppleMusicQueuePillsRow(
             modifier = Modifier.weight(1f),
         )
         AppleMusicQueuePill(
-            icon = if (repeatState is RepeatState.One) SimpIcons.RepeatOne else SimpIcons.Repeat,
+            icon = if (repeatState is RepeatState.One) PulseIcons.RepeatOne else PulseIcons.Repeat,
             active = repeatState !is RepeatState.None,
             activeContainer = activePillContainer,
             activeContent = activePillContent,

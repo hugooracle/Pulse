@@ -78,7 +78,7 @@ import pt.pulse.app.ui.icon.MoreVert
 import pt.pulse.app.ui.icon.Pause
 import pt.pulse.app.ui.icon.PlayArrow
 import pt.pulse.app.ui.icon.Replay5
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.SkipNext
 import pt.pulse.app.ui.icon.SkipPrevious
 import pt.pulse.app.ui.icon.Subtitles
@@ -237,7 +237,7 @@ fun FullscreenPlayer(
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 Icon(
-                                    SimpIcons.KeyboardDoubleArrowLeft,
+                                    PulseIcons.KeyboardDoubleArrowLeft,
                                     "",
                                     tint = Color.White,
                                 )
@@ -295,7 +295,7 @@ fun FullscreenPlayer(
                                 )
                                 Spacer(Modifier.width(4.dp))
                                 Icon(
-                                    SimpIcons.KeyboardDoubleArrowRight,
+                                    PulseIcons.KeyboardDoubleArrowRight,
                                     "",
                                     tint = Color.White,
                                 )
@@ -353,7 +353,7 @@ fun FullscreenPlayer(
                             navigationIcon = {
                                 Box(Modifier.padding(horizontal = 5.dp)) {
                                     RippleIconButton(
-                                        SimpIcons.ArrowBackIosNew,
+                                        PulseIcons.ArrowBackIosNew,
                                         Modifier
                                             .size(32.dp),
                                         true,
@@ -364,7 +364,7 @@ fun FullscreenPlayer(
                             },
                             actions = {
                                 RippleIconButton(
-                                    SimpIcons.MoreVert,
+                                    PulseIcons.MoreVert,
                                 ) {
                                     showBottom = true
                                 }
@@ -395,7 +395,7 @@ fun FullscreenPlayer(
                                 },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.SkipPrevious,
+                                    imageVector = PulseIcons.SkipPrevious,
                                     tint = if (controllerState.isPreviousAvailable) Color.White else Color.DarkGray,
                                     contentDescription = "",
                                     modifier =
@@ -420,7 +420,7 @@ fun FullscreenPlayer(
                                 },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.Replay5,
+                                    imageVector = PulseIcons.Replay5,
                                     tint = Color.White,
                                     contentDescription = "",
                                     modifier =
@@ -447,7 +447,7 @@ fun FullscreenPlayer(
                                 Crossfade(controllerState.isPlaying) {
                                     if (it) {
                                         Icon(
-                                            imageVector = SimpIcons.Pause,
+                                            imageVector = PulseIcons.Pause,
                                             tint = Color.White,
                                             contentDescription = "",
                                             modifier =
@@ -456,7 +456,7 @@ fun FullscreenPlayer(
                                         )
                                     } else {
                                         Icon(
-                                            imageVector = SimpIcons.PlayArrow,
+                                            imageVector = PulseIcons.PlayArrow,
                                             tint = Color.White,
                                             contentDescription = "",
                                             modifier =
@@ -483,7 +483,7 @@ fun FullscreenPlayer(
                                 },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.Forward5,
+                                    imageVector = PulseIcons.Forward5,
                                     tint = Color.White,
                                     contentDescription = "",
                                     modifier =
@@ -509,7 +509,7 @@ fun FullscreenPlayer(
                                 },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.SkipNext,
+                                    imageVector = PulseIcons.SkipNext,
                                     tint = if (controllerState.isNextAvailable) Color.White else Color.DarkGray,
                                     contentDescription = "",
                                     modifier =
@@ -697,7 +697,7 @@ fun FullscreenPlayer(
                                         Crossfade(shouldShowSubtitle) {
                                             if (it) {
                                                 Icon(
-                                                    imageVector = SimpIcons.SubtitlesOff,
+                                                    imageVector = PulseIcons.SubtitlesOff,
                                                     tint = Color.White,
                                                     contentDescription = "",
                                                     modifier =
@@ -706,7 +706,7 @@ fun FullscreenPlayer(
                                                 )
                                             } else {
                                                 Icon(
-                                                    imageVector = SimpIcons.Subtitles,
+                                                    imageVector = PulseIcons.Subtitles,
                                                     tint = Color.White,
                                                     contentDescription = "",
                                                     modifier =
@@ -734,7 +734,7 @@ fun FullscreenPlayer(
                                         },
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.FullscreenExit,
+                                            imageVector = PulseIcons.FullscreenExit,
                                             tint = Color.White,
                                             contentDescription = "",
                                             modifier =

@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.MoreVert
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import org.jetbrains.compose.resources.painterResource
 import pulse.composeapp.generated.resources.Res
 
@@ -57,7 +57,7 @@ fun NormalAppBarPreview() {
         leftIcon = {
             IconButton(onClick = { }) {
                 Icon(
-                    SimpIcons.ArrowBackIosNew,
+                    PulseIcons.ArrowBackIosNew,
                     contentDescription = "Back",
                 )
             }
@@ -65,7 +65,7 @@ fun NormalAppBarPreview() {
         rightIcon = {
             IconButton(onClick = { }) {
                 Icon(
-                    SimpIcons.MoreVert,
+                    PulseIcons.MoreVert,
                     contentDescription = "Back",
                 )
             }

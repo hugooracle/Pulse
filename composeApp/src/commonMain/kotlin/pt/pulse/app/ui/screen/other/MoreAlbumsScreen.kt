@@ -36,7 +36,7 @@ import pt.pulse.app.ui.component.EndOfPage
 import pt.pulse.app.ui.component.HomeItemContentPlaylist
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.MoreAlbumsDestination
 import pt.pulse.app.ui.theme.typo
@@ -146,7 +146,7 @@ fun MoreAlbumsScreen(
                     navigationIcon = {
                         Box(Modifier.padding(horizontal = 5.dp)) {
                             RippleIconButton(
-                                SimpIcons.ArrowBackIosNew,
+                                PulseIcons.ArrowBackIosNew,
                                 Modifier
                                     .size(32.dp),
                                 true,

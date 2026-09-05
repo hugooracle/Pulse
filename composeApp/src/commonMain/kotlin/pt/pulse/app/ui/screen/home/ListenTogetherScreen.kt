@@ -94,7 +94,7 @@ import pt.pulse.app.ui.icon.ContentCopy
 import pt.pulse.app.ui.icon.Logout
 import pt.pulse.app.ui.icon.Settings
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.ListenTogetherSettingsDestination
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.ListenTogetherViewModel
@@ -453,7 +453,7 @@ private fun BoxScope.BackButton(
     // refract — and keeps it reachable once the page has scrolled, which the in-flow one did not.
     LiquidGlassIconButton(
         backdrop = backdrop,
-        imageVector = SimpIcons.ArrowBackIosNew,
+        imageVector = PulseIcons.ArrowBackIosNew,
         // NOT the default Color.White: every other caller sits on a ForceDark screen, but this page
         // follows the theme — at light theme a white glyph sits on light glass (or on the light
         // fallback pill) and disappears. onSurface flips with the scheme.
@@ -639,12 +639,12 @@ private fun RoomCodePoster(
                 // A silent clipboard write is indistinguishable from a dead button, and this one
                 // is the whole point of the screen — the tick is the only proof it did anything.
                 Crossfade(targetState = copied, label = "ltCopied") { done ->
-                    GlyphButton(if (done) SimpIcons.Check else SimpIcons.ContentCopy) {
+                    GlyphButton(if (done) PulseIcons.Check else PulseIcons.ContentCopy) {
                         onCopyCode()
                         copied = true
                     }
                 }
-                GlyphButton(SimpIcons.Share, onShareCode)
+                GlyphButton(PulseIcons.Share, onShareCode)
             }
         }
     }
@@ -719,7 +719,7 @@ private fun ErrorCard(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(message, style = typo().bodyMedium, color = MaterialTheme.colorScheme.error, modifier = Modifier.weight(1f))
-            Icon(SimpIcons.Close, contentDescription = null, tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(16.dp))
+            Icon(PulseIcons.Close, contentDescription = null, tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(16.dp))
         }
     }
 }
@@ -747,8 +747,8 @@ private fun JoinRequests(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                ActionGlyph(SimpIcons.Check, MaterialTheme.colorScheme.primary) { onApprove(request.userId) }
-                ActionGlyph(SimpIcons.Close, MaterialTheme.colorScheme.error) { onReject(request.userId) }
+                ActionGlyph(PulseIcons.Check, MaterialTheme.colorScheme.primary) { onApprove(request.userId) }
+                ActionGlyph(PulseIcons.Close, MaterialTheme.colorScheme.error) { onReject(request.userId) }
             }
         }
     }
@@ -789,8 +789,8 @@ private fun Suggestions(
                         maxLines = 1,
                     )
                 }
-                ActionGlyph(SimpIcons.Check, MaterialTheme.colorScheme.primary) { onApprove(suggestion.suggestionId) }
-                ActionGlyph(SimpIcons.Close, MaterialTheme.colorScheme.error) { onReject(suggestion.suggestionId) }
+                ActionGlyph(PulseIcons.Check, MaterialTheme.colorScheme.primary) { onApprove(suggestion.suggestionId) }
+                ActionGlyph(PulseIcons.Close, MaterialTheme.colorScheme.error) { onReject(suggestion.suggestionId) }
             }
         }
     }
@@ -877,7 +877,7 @@ private fun Members(
                 }
                 if (manageable) {
                     Icon(
-                        SimpIcons.ArrowForwardIos,
+                        PulseIcons.ArrowForwardIos,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.size(14.dp),
@@ -905,14 +905,14 @@ private fun FooterActions(
     ) {
         if (onLeave != null) {
             TextAction(
-                icon = SimpIcons.Logout,
+                icon = PulseIcons.Logout,
                 text = stringResource(Res.string.lt_leave_room),
                 color = MaterialTheme.colorScheme.error,
                 onClick = onLeave,
             )
         }
         TextAction(
-            icon = SimpIcons.Settings,
+            icon = PulseIcons.Settings,
             text = stringResource(Res.string.settings),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             onClick = onSettings,

@@ -125,7 +125,7 @@ import pt.pulse.app.ui.icon.ArrowOutward
 import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.History
 import pt.pulse.app.ui.icon.Search
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.MoodDestination
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
@@ -455,7 +455,7 @@ fun SearchScreen(
                                     },
                                 ) {
                                     Icon(
-                                        imageVector = SimpIcons.ArrowOutward,
+                                        imageVector = PulseIcons.ArrowOutward,
                                         contentDescription = "Search suggestion",
                                         modifier = Modifier.size(24.dp),
                                     )
@@ -529,7 +529,7 @@ fun SearchScreen(
                                     verticalAlignment = Alignment.CenterVertically,
                                 ) {
                                     Icon(
-                                        imageVector = SimpIcons.History,
+                                        imageVector = PulseIcons.History,
                                         contentDescription = "Search history",
                                         modifier = Modifier.size(24.dp),
                                     )
@@ -546,7 +546,7 @@ fun SearchScreen(
                                         },
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.ArrowOutward,
+                                            imageVector = PulseIcons.ArrowOutward,
                                             contentDescription = "Search suggestion",
                                             modifier = Modifier.size(24.dp),
                                         )
@@ -1052,7 +1052,7 @@ fun SearchScreen(
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = SimpIcons.Search,
+                            imageVector = PulseIcons.Search,
                             contentDescription = "Search",
                         )
                     },
@@ -1067,7 +1067,7 @@ fun SearchScreen(
                                 },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.Close,
+                                    imageVector = PulseIcons.Close,
                                     contentDescription = "Clear search",
                                 )
                             }

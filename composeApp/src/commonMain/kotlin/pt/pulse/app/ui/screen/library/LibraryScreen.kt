@@ -81,7 +81,7 @@ import pt.pulse.app.ui.component.selection.SongSelectionTopAppBar
 import pt.pulse.app.ui.component.selection.rememberSongSelectionState
 import pt.pulse.app.ui.icon.Groups
 import pt.pulse.app.ui.icon.PeopleAlt
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.ListenTogetherDestination
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.LibraryViewModel
@@ -483,8 +483,8 @@ fun LibraryScreen(
                                 .data(accountThumbnail)
                                 .crossfade(550)
                                 .build(),
-                        placeholder = rememberVectorPainter(SimpIcons.PeopleAlt),
-                        error = rememberVectorPainter(SimpIcons.PeopleAlt),
+                        placeholder = rememberVectorPainter(PulseIcons.PeopleAlt),
+                        error = rememberVectorPainter(PulseIcons.PeopleAlt),
                         contentDescription = null,
                         modifier =
                             Modifier

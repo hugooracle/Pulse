@@ -30,7 +30,7 @@ import pt.pulse.app.ui.icon.Download
 import pt.pulse.app.ui.icon.Favorite
 import pt.pulse.app.ui.icon.PlaylistAdd
 import pt.pulse.app.ui.icon.QueueMusic
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.SkipNext
 import pt.pulse.app.ui.theme.typo
 import kotlinx.coroutines.launch
@@ -121,31 +121,31 @@ fun SelectedSongsBottomSheet(
                     )
                     if (onPlayNext != null) {
                         ActionButton(
-                            icon = SimpIcons.SkipNext,
+                            icon = PulseIcons.SkipNext,
                             text = Res.string.play_next,
                         ) { hideThen(onPlayNext) }
                     }
                     if (onAddToQueue != null) {
                         ActionButton(
-                            icon = SimpIcons.QueueMusic,
+                            icon = PulseIcons.QueueMusic,
                             text = Res.string.add_to_queue,
                         ) { hideThen(onAddToQueue) }
                     }
                     if (onAddToPlaylist != null) {
                         ActionButton(
-                            icon = SimpIcons.PlaylistAdd,
+                            icon = PulseIcons.PlaylistAdd,
                             text = Res.string.add_to_a_playlist,
                         ) { hideThen(onAddToPlaylist) }
                     }
                     if (onDownload != null) {
                         ActionButton(
-                            icon = SimpIcons.Download,
+                            icon = PulseIcons.Download,
                             text = Res.string.download,
                         ) { hideThen(onDownload) }
                     }
                     if (onAddToFavorite != null) {
                         ActionButton(
-                            icon = SimpIcons.Favorite,
+                            icon = PulseIcons.Favorite,
                             text = Res.string.favorite,
                         ) { hideThen(onAddToFavorite) }
                     }

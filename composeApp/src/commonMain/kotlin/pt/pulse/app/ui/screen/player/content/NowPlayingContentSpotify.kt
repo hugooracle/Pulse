@@ -140,7 +140,7 @@ import pt.pulse.app.ui.icon.PlaylistAdd
 import pt.pulse.app.ui.icon.QueueMusic
 import pt.pulse.app.ui.icon.Replay5
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.Subtitles
 import pt.pulse.app.ui.icon.SubtitlesOff
 import pt.pulse.app.ui.icon.ThumbsUpDown
@@ -648,7 +648,7 @@ fun NowPlayingContentSpotify(
                                                                 Modifier.align(Alignment.TopEnd),
                                                             ) {
                                                                 Icon(
-                                                                    imageVector = SimpIcons.Fullscreen,
+                                                                    imageVector = PulseIcons.Fullscreen,
                                                                     contentDescription = "",
                                                                     tint = Color.White,
                                                                 )
@@ -674,7 +674,7 @@ fun NowPlayingContentSpotify(
                                                                     },
                                                                 ) {
                                                                     Icon(
-                                                                        imageVector = SimpIcons.Replay5,
+                                                                        imageVector = PulseIcons.Replay5,
                                                                         tint = Color.White,
                                                                         contentDescription = "",
                                                                         modifier =
@@ -698,7 +698,7 @@ fun NowPlayingContentSpotify(
                                                                     },
                                                                 ) {
                                                                     Icon(
-                                                                        imageVector = SimpIcons.Forward5,
+                                                                        imageVector = PulseIcons.Forward5,
                                                                         tint = Color.White,
                                                                         contentDescription = "",
                                                                         modifier =
@@ -718,9 +718,9 @@ fun NowPlayingContentSpotify(
                                                                     Icon(
                                                                         imageVector =
                                                                             if (internalShowSubtitle) {
-                                                                                SimpIcons.SubtitlesOff
+                                                                                PulseIcons.SubtitlesOff
                                                                             } else {
-                                                                                SimpIcons.Subtitles
+                                                                                PulseIcons.Subtitles
                                                                             },
                                                                         contentDescription = "",
                                                                         tint = Color.White,
@@ -858,7 +858,7 @@ fun NowPlayingContentSpotify(
                             actions.onShowMoreSheet()
                         }) {
                             Icon(
-                                imageVector = SimpIcons.MoreVert,
+                                imageVector = PulseIcons.MoreVert,
                                 contentDescription = "",
                                 tint = Color.White,
                             )
@@ -1220,7 +1220,7 @@ fun NowPlayingContentSpotify(
                                                     actions.onShowInfo()
                                                 },
                                             ) {
-                                                Icon(imageVector = SimpIcons.Info, tint = Color.White, contentDescription = "")
+                                                Icon(imageVector = PulseIcons.Info, tint = Color.White, contentDescription = "")
                                             }
                                             // Cyan rather than colorScheme.primary: this screen is force-dark whatever
                                             // the app theme is, so a light-theme primary would sink into the black
@@ -1260,7 +1260,7 @@ fun NowPlayingContentSpotify(
                                                 },
                                             ) {
                                                 Icon(
-                                                    imageVector = SimpIcons.PlaylistAdd,
+                                                    imageVector = PulseIcons.PlaylistAdd,
                                                     tint = Color.White,
                                                     contentDescription = "Add to Playlist",
                                                 )
@@ -1278,7 +1278,7 @@ fun NowPlayingContentSpotify(
                                                 },
                                             ) {
                                                 Icon(
-                                                    imageVector = SimpIcons.QueueMusic,
+                                                    imageVector = PulseIcons.QueueMusic,
                                                     tint = Color.White,
                                                     contentDescription = "",
                                                 )
@@ -1445,7 +1445,7 @@ fun NowPlayingContentSpotify(
                                                     },
                                                 ) {
                                                     Icon(
-                                                        imageVector = SimpIcons.ThumbsUpDown,
+                                                        imageVector = PulseIcons.ThumbsUpDown,
                                                         contentDescription = stringResource(Res.string.rate_lyrics),
                                                         tint = Color.White,
                                                         modifier = Modifier.size(16.dp),
@@ -1459,7 +1459,7 @@ fun NowPlayingContentSpotify(
                                                 onClick = { showShareLyricsSheet = true },
                                             ) {
                                                 Icon(
-                                                    imageVector = SimpIcons.Share,
+                                                    imageVector = PulseIcons.Share,
                                                     contentDescription = stringResource(Res.string.share_lyrics),
                                                     tint = Color.White,
                                                     modifier = Modifier.size(16.dp),
@@ -1991,7 +1991,7 @@ private fun NowPlayingTrackInfoRow(
                             actions.onAddToYouTubeLiked()
                         },
                     ) {
-                        Icon(imageVector = SimpIcons.CheckCircle, tint = Color.White, contentDescription = "")
+                        Icon(imageVector = PulseIcons.CheckCircle, tint = Color.White, contentDescription = "")
                     }
                 } else {
                     IconButton(
@@ -2007,7 +2007,7 @@ private fun NowPlayingTrackInfoRow(
                         },
                     ) {
                         Icon(
-                            imageVector = SimpIcons.AddCircleOutline,
+                            imageVector = PulseIcons.AddCircleOutline,
                             tint = Color.White,
                             contentDescription = "",
                         )

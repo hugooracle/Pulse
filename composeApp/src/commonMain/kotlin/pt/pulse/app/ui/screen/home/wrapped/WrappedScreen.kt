@@ -69,7 +69,7 @@ import pt.pulse.app.ui.component.capture.rememberCaptureController
 import pt.pulse.app.ui.component.liquidGlass
 import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.screen.home.wrapped.cards.WrappedBiggestDayCard
 import pt.pulse.app.ui.screen.home.wrapped.cards.WrappedClockCard
 import pt.pulse.app.ui.screen.home.wrapped.cards.WrappedDecadesCard
@@ -507,7 +507,7 @@ private fun WrappedHeader(
             )
             LiquidGlassIconButton(
                 backdrop = backdrop,
-                imageVector = SimpIcons.Close,
+                imageVector = PulseIcons.Close,
                 tint = MaterialTheme.colorScheme.onSurface,
                 // Round buttons need the rim named: Highlight's default is a DIRECTIONAL sweep that
                 // an elongated pill catches along its long edge and a circle barely catches at all.
@@ -565,7 +565,7 @@ private fun WrappedFooter(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = SimpIcons.Share,
+                imageVector = PulseIcons.Share,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.size(15.dp),

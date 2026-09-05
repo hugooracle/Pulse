@@ -37,7 +37,7 @@ import androidx.compose.ui.window.WindowState
 import pt.pulse.app.extension.DesktopWindowChrome
 import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.Remove
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.UnfoldLess
 import pt.pulse.app.ui.icon.UnfoldMore
 import pt.pulse.app.ui.theme.typo
@@ -217,13 +217,13 @@ private fun WindowControlButton(
             Box(modifier = Modifier.padding(1.dp)) {
                 when (icon) {
                     WindowControlIcon.Minimize -> {
-                        Icon(SimpIcons.Remove, tint = Color.DarkGray, contentDescription = "Minimize")
+                        Icon(PulseIcons.Remove, tint = Color.DarkGray, contentDescription = "Minimize")
                     }
 
                     WindowControlIcon.Maximize -> {
                         Icon(
                             modifier = Modifier.rotate(45f),
-                            imageVector = SimpIcons.UnfoldMore,
+                            imageVector = PulseIcons.UnfoldMore,
                             tint = Color.DarkGray,
                             contentDescription = "Minimize",
                         )
@@ -232,7 +232,7 @@ private fun WindowControlButton(
                     WindowControlIcon.Restore -> {
                         Icon(
                             modifier = Modifier.rotate(45f),
-                            imageVector = SimpIcons.UnfoldLess,
+                            imageVector = PulseIcons.UnfoldLess,
                             tint = Color.DarkGray,
                             contentDescription = "Minimize",
                         )
@@ -240,7 +240,7 @@ private fun WindowControlButton(
 
                     WindowControlIcon.Close -> {
                         Icon(
-                            imageVector = SimpIcons.Close,
+                            imageVector = PulseIcons.Close,
                             tint = Color.DarkGray,
                             contentDescription = "Close",
                         )

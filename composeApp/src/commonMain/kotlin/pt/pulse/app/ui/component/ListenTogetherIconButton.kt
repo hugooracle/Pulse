@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import pt.pulse.core.domain.repository.ListenTogetherRepository
 import pt.pulse.app.ui.icon.Groups
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import org.koin.compose.koinInject
 
 /**
@@ -34,7 +34,7 @@ fun ListenTogetherIconButton(onClick: () -> Unit) {
 
     Box {
         RippleIconButton(
-            imageVector = SimpIcons.Groups,
+            imageVector = PulseIcons.Groups,
             tint = MaterialTheme.colorScheme.onBackground,
             onClick = onClick,
         )

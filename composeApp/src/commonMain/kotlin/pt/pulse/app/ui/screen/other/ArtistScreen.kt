@@ -114,7 +114,7 @@ import pt.pulse.app.ui.icon.Check
 import pt.pulse.app.ui.icon.PersonAdd
 import pt.pulse.app.ui.icon.Sensors
 import pt.pulse.app.ui.icon.Shuffle
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.navigation.destination.list.MoreAlbumsDestination
@@ -430,7 +430,7 @@ fun ArtistScreen(
                                     // Back button — liquid glass, sibling of the backdrop source.
                                     LiquidGlassIconButton(
                                         backdrop = artworkBackdrop,
-                                        imageVector = SimpIcons.ArrowBackIosNew,
+                                        imageVector = PulseIcons.ArrowBackIosNew,
                                         shape = RoundedCornerShape(24.dp),
                                         // Matching the other three headers: the pill-style directional rim, thickened
                                         // from the 0.5.dp default so it stays visible around a 48dp circle.
@@ -476,7 +476,7 @@ fun ArtistScreen(
                                         contentAlignment = Alignment.Center,
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.Sensors,
+                                            imageVector = PulseIcons.Sensors,
                                             contentDescription = "Radio",
                                             tint = artistAccent,
                                             modifier = Modifier.size(22.dp),
@@ -502,7 +502,7 @@ fun ArtistScreen(
                                         contentAlignment = Alignment.Center,
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.Shuffle,
+                                            imageVector = PulseIcons.Shuffle,
                                             contentDescription = "Shuffle",
                                             tint = mutedPaletteBg,
                                             modifier = Modifier.size(28.dp),
@@ -527,7 +527,7 @@ fun ArtistScreen(
                                         contentAlignment = Alignment.Center,
                                     ) {
                                         Icon(
-                                            imageVector = if (isFollowed) SimpIcons.Check else SimpIcons.PersonAdd,
+                                            imageVector = if (isFollowed) PulseIcons.Check else PulseIcons.PersonAdd,
                                             contentDescription = if (isFollowed) "Followed" else "Follow",
                                             tint = if (isFollowed) mutedPaletteBg else artistAccent,
                                             modifier = Modifier.size(22.dp),
@@ -579,7 +579,7 @@ fun ArtistScreen(
                                 Box(Modifier.padding(horizontal = 5.dp)) {
                                     IconButton(onClick = { navController.navigateUp() }) {
                                         Icon(
-                                            imageVector = SimpIcons.ArrowBackIosNew,
+                                            imageVector = PulseIcons.ArrowBackIosNew,
                                             contentDescription = "Back",
                                             tint = Color.White,
                                             modifier = Modifier.size(20.dp),

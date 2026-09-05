@@ -101,7 +101,7 @@ import pt.pulse.app.ui.component.selection.SongSelectionTopAppBar
 import pt.pulse.app.ui.component.selection.rememberSongSelectionState
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.KeyboardArrowDown
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.RecentlySongsDestination
 import pt.pulse.app.ui.navigation.destination.home.WrappedDestination
 import pt.pulse.app.ui.navigation.destination.library.LibraryDynamicPlaylistDestination
@@ -439,7 +439,7 @@ fun AnalyticsScreen(
         val pillGutter = if (isPortrait) 16.dp else LANDSCAPE_GUTTER
         LiquidGlassIconButton(
             backdrop = headerBackdrop,
-            imageVector = SimpIcons.ArrowBackIosNew,
+            imageVector = PulseIcons.ArrowBackIosNew,
             shape = RoundedCornerShape(24.dp),
             // A 48dp circle catches only a short arc of the default directional sweep and reads
             // as rimless; 1.dp is the smallest step that stays visible without looking a border.
@@ -502,7 +502,7 @@ private fun DayRangePill(
         ) {
             Text(text = label, style = typo().labelSmall, color = Color.White, maxLines = 1)
             Icon(
-                imageVector = SimpIcons.KeyboardArrowDown,
+                imageVector = PulseIcons.KeyboardArrowDown,
                 contentDescription = null,
                 tint = Color.White,
                 modifier = Modifier.size(18.dp),
@@ -826,14 +826,14 @@ private fun PeriodNavigator(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = if (gutter == 0.dp) Arrangement.spacedBy(14.dp) else Arrangement.SpaceBetween,
     ) {
-        StepArrow(SimpIcons.ArrowBackIosNew, enabled = true) { onStep(-1) }
+        StepArrow(PulseIcons.ArrowBackIosNew, enabled = true) { onStep(-1) }
         Text(
             text = if (start != null && end != null) formatPeriodSpan(start, end) else "",
             style = typo().bodyMedium,
             color = MaterialTheme.colorScheme.onSurface,
             maxLines = 1,
         )
-        StepArrow(SimpIcons.ArrowForwardIos, enabled = uiState.canStepForward) { onStep(1) }
+        StepArrow(PulseIcons.ArrowForwardIos, enabled = uiState.canStepForward) { onStep(1) }
     }
 }
 

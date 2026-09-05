@@ -29,7 +29,7 @@ import coil3.request.ImageRequest
 import coil3.request.crossfade
 import pt.pulse.core.domain.data.model.podcast.PodcastBrowse
 import pt.pulse.app.ui.icon.MoreVert
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import org.jetbrains.compose.resources.painterResource
 import pulse.composeapp.generated.resources.Res
@@ -126,7 +126,7 @@ fun PodcastEpisodeFullWidthItem(
             }
 
             if (onMoreClickListener != null) {
-                RippleIconButton(imageVector = SimpIcons.MoreVert, fillMaxSize = false) {
+                RippleIconButton(imageVector = PulseIcons.MoreVert, fillMaxSize = false) {
                     onMoreClickListener.invoke()
                 }
             }

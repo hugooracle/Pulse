@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
 @Suppress("CheckReturnValue")
-val SimpIcons.ArrowForwardIos: ImageVector
+val PulseIcons.ArrowForwardIos: ImageVector
   get() {
     if (_ArrowForwardIos != null) {
       return _ArrowForwardIos!!

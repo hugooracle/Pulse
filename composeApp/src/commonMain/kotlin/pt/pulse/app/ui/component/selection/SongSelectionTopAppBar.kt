@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.MoreVert
 import pt.pulse.app.ui.icon.SelectAll
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import org.jetbrains.compose.resources.stringResource
 import pulse.composeapp.generated.resources.Res
@@ -54,7 +54,7 @@ fun SongSelectionTopAppBar(
         navigationIcon = {
             IconButton(onClick = { state.exit() }) {
                 Icon(
-                    imageVector = SimpIcons.Close,
+                    imageVector = PulseIcons.Close,
                     contentDescription = stringResource(Res.string.exit_selection),
                 )
             }
@@ -69,7 +69,7 @@ fun SongSelectionTopAppBar(
         actions = {
             IconButton(onClick = onSelectAll) {
                 Icon(
-                    imageVector = SimpIcons.SelectAll,
+                    imageVector = PulseIcons.SelectAll,
                     contentDescription = stringResource(Res.string.select_all),
                 )
             }
@@ -78,7 +78,7 @@ fun SongSelectionTopAppBar(
             if (state.count > 0) {
                 IconButton(onClick = onOpenActions) {
                     Icon(
-                        imageVector = SimpIcons.MoreVert,
+                        imageVector = PulseIcons.MoreVert,
                         contentDescription = null,
                     )
                 }

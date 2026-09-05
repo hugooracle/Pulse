@@ -155,7 +155,7 @@ import pt.pulse.app.ui.icon.MoreVert
 import pt.pulse.app.ui.icon.Pause
 import pt.pulse.app.ui.icon.PlayArrow
 import pt.pulse.app.ui.icon.Shuffle
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.Sort
 import pt.pulse.app.ui.icon.TipsAndUpdates
 import pt.pulse.app.ui.theme.LocalIsDarkTheme
@@ -235,7 +235,7 @@ fun LocalPlaylistScreen(
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    val aiPainter = rememberVectorPainter(SimpIcons.TipsAndUpdates)
+    val aiPainter = rememberVectorPainter(PulseIcons.TipsAndUpdates)
     val limit = 1.5f
     val transition = rememberInfiniteTransition(label = "shimmer")
     val progressAnimated by transition.animateFloat(
@@ -641,7 +641,7 @@ fun LocalPlaylistScreen(
                                 ) {
                                     LiquidGlassIconButton(
                                         backdrop = artworkBackdrop,
-                                        imageVector = SimpIcons.ArrowBackIosNew,
+                                        imageVector = PulseIcons.ArrowBackIosNew,
                                         modifier =
                                             Modifier
                                                 .size(48.dp),
@@ -702,7 +702,7 @@ fun LocalPlaylistScreen(
                                             onClick = { showSearchBar = true },
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.Search,
+                                                imageVector = PulseIcons.Search,
                                                 contentDescription = "Search in playlist",
                                                 tint = Color.White,
                                             )
@@ -711,7 +711,7 @@ fun LocalPlaylistScreen(
                                             onClick = onPlaylistMoreClick,
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.MoreVert,
+                                                imageVector = PulseIcons.MoreVert,
                                                 contentDescription = "More",
                                                 tint = Color.White,
                                             )
@@ -840,7 +840,7 @@ fun LocalPlaylistScreen(
                                                     contentAlignment = Alignment.Center,
                                                 ) {
                                                     Icon(
-                                                        imageVector = SimpIcons.Shuffle,
+                                                        imageVector = PulseIcons.Shuffle,
                                                         contentDescription = "Shuffle",
                                                         tint = Color.White,
                                                         modifier = Modifier.size(22.dp),
@@ -866,9 +866,9 @@ fun LocalPlaylistScreen(
                                                         Icon(
                                                             imageVector =
                                                                 if (isThisPlaying) {
-                                                                    SimpIcons.Pause
+                                                                    PulseIcons.Pause
                                                                 } else {
-                                                                    SimpIcons.PlayArrow
+                                                                    PulseIcons.PlayArrow
                                                                 },
                                                             contentDescription = null,
                                                             tint = Color.Black,
@@ -949,7 +949,7 @@ fun LocalPlaylistScreen(
                                                                     contentAlignment = Alignment.Center,
                                                                 ) {
                                                                     Icon(
-                                                                        imageVector = SimpIcons.DownloadForOffline,
+                                                                        imageVector = PulseIcons.DownloadForOffline,
                                                                         tint = Color.White,
                                                                         contentDescription = "Download",
                                                                         modifier = Modifier.size(22.dp),
@@ -967,7 +967,7 @@ fun LocalPlaylistScreen(
                                 Box(Modifier.padding(start = 12.dp)) {
                                     LiquidGlassIconButton(
                                         backdrop = headerBackdrop,
-                                        imageVector = SimpIcons.ArrowBackIosNew,
+                                        imageVector = PulseIcons.ArrowBackIosNew,
                                         shape = RoundedCornerShape(24.dp),
                                         // Same directional style as the like/⋯ pill, a touch thicker. The default
                                         // width of 0.5.dp becomes a ~2px stroke (HighlightModifier: ceil(width.toPx()) * 2),
@@ -1040,7 +1040,7 @@ fun LocalPlaylistScreen(
                                         onClick = { showSearchBar = true },
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.Search,
+                                            imageVector = PulseIcons.Search,
                                             contentDescription = "Search in playlist",
                                             tint = Color.White,
                                         )
@@ -1049,7 +1049,7 @@ fun LocalPlaylistScreen(
                                         onClick = onPlaylistMoreClick,
                                     ) {
                                         Icon(
-                                            imageVector = SimpIcons.MoreVert,
+                                            imageVector = PulseIcons.MoreVert,
                                             contentDescription = "More",
                                             tint = Color.White,
                                         )
@@ -1093,7 +1093,7 @@ fun LocalPlaylistScreen(
                                             contentAlignment = Alignment.Center,
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.Shuffle,
+                                                imageVector = PulseIcons.Shuffle,
                                                 contentDescription = "Shuffle",
                                                 tint = Color.White,
                                                 modifier = Modifier.size(22.dp),
@@ -1119,9 +1119,9 @@ fun LocalPlaylistScreen(
                                                 Icon(
                                                     imageVector =
                                                         if (isThisPlaying) {
-                                                            SimpIcons.Pause
+                                                            PulseIcons.Pause
                                                         } else {
-                                                            SimpIcons.PlayArrow
+                                                            PulseIcons.PlayArrow
                                                         },
                                                     contentDescription = null,
                                                     tint = Color.Black,
@@ -1202,7 +1202,7 @@ fun LocalPlaylistScreen(
                                                             contentAlignment = Alignment.Center,
                                                         ) {
                                                             Icon(
-                                                                imageVector = SimpIcons.DownloadForOffline,
+                                                                imageVector = PulseIcons.DownloadForOffline,
                                                                 tint = Color.White,
                                                                 contentDescription = "Download",
                                                                 modifier = Modifier.size(22.dp),
@@ -1312,7 +1312,7 @@ fun LocalPlaylistScreen(
                                             verticalAlignment = Alignment.CenterVertically,
                                         ) {
                                             Icon(
-                                                imageVector = SimpIcons.Sort,
+                                                imageVector = PulseIcons.Sort,
                                                 contentDescription = "Sort playlist",
                                                 tint = Color.White,
                                                 modifier = Modifier.size(20.dp),
@@ -1504,7 +1504,7 @@ fun LocalPlaylistScreen(
             extraActions =
                 listOf(
                     SongSelectionAction(
-                        icon = SimpIcons.Delete,
+                        icon = PulseIcons.Delete,
                         label = removeLabel,
                         tint = Color.Red,
                     ) {
@@ -1664,7 +1664,7 @@ fun LocalPlaylistScreen(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     RippleIconButton(
-                        imageVector = SimpIcons.ArrowBackIosNew,
+                        imageVector = PulseIcons.ArrowBackIosNew,
                     ) {
                         navController.navigateUp()
                     }
@@ -1706,7 +1706,7 @@ fun LocalPlaylistScreen(
                             viewModel.setSearchQuery("")
                         },
                     ) {
-                        Icon(SimpIcons.Close, null, tint = Color.White)
+                        Icon(PulseIcons.Close, null, tint = Color.White)
                     }
                 }
             }
@@ -1763,7 +1763,7 @@ fun LocalPlaylistScreen(
             navigationIcon = {
                 Box(Modifier.padding(horizontal = 5.dp)) {
                     RippleIconButton(
-                        SimpIcons.ArrowBackIosNew,
+                        PulseIcons.ArrowBackIosNew,
                         Modifier
                             .size(32.dp),
                         true,

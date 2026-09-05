@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.ThumbDown
 import pt.pulse.app.ui.icon.ThumbUp
 import pt.pulse.app.ui.theme.typo
@@ -128,7 +128,7 @@ private fun VoteRow(
 
                 is VoteState.Success -> {
                     Icon(
-                        imageVector = if (voteState.state.upvote) SimpIcons.ThumbUp else SimpIcons.ThumbDown,
+                        imageVector = if (voteState.state.upvote) PulseIcons.ThumbUp else PulseIcons.ThumbDown,
                         contentDescription = null,
                         tint = Color.Cyan,
                         modifier = Modifier.size(24.dp),
@@ -152,7 +152,7 @@ private fun VoteRow(
                             modifier = Modifier.size(36.dp),
                         ) {
                             Icon(
-                                imageVector = SimpIcons.ThumbUp,
+                                imageVector = PulseIcons.ThumbUp,
                                 contentDescription = stringResource(Res.string.upvote),
                                 modifier = Modifier.size(20.dp),
                             )
@@ -162,7 +162,7 @@ private fun VoteRow(
                             modifier = Modifier.size(36.dp),
                         ) {
                             Icon(
-                                imageVector = SimpIcons.ThumbDown,
+                                imageVector = PulseIcons.ThumbDown,
                                 contentDescription = stringResource(Res.string.downvote),
                                 modifier = Modifier.size(20.dp),
                             )

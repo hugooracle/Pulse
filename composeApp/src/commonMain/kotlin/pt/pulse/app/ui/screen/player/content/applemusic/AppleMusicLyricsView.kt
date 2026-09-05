@@ -51,7 +51,7 @@ import pt.pulse.app.ui.component.lyrics.ShareLyricsSheet
 import pt.pulse.app.ui.component.lyrics.toShareLyricsLines
 import pt.pulse.app.ui.icon.OpenInFull
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.ThumbsUpDown
 import pt.pulse.app.ui.screen.player.content.NowPlayingContentActions
 import pt.pulse.app.ui.screen.player.content.NowPlayingContentState
@@ -255,10 +255,10 @@ internal fun AppleMusicLyricsView(
                         // always gated theirs; this one did not, so it invited a rating on
                         // YouTube/LRCLIB/Spotify lyrics that had nowhere to go.
                         if (lyricsData.canVote()) {
-                            AppleMusicFloatingCircleButton(icon = SimpIcons.ThumbsUpDown, onClick = { actions.onShowVoteDialog() })
+                            AppleMusicFloatingCircleButton(icon = PulseIcons.ThumbsUpDown, onClick = { actions.onShowVoteDialog() })
                         }
-                        AppleMusicFloatingCircleButton(icon = SimpIcons.Share, onClick = { showShareSheet = true })
-                        AppleMusicFloatingCircleButton(icon = SimpIcons.OpenInFull, onClick = { actions.onShowFullscreenLyrics() })
+                        AppleMusicFloatingCircleButton(icon = PulseIcons.Share, onClick = { showShareSheet = true })
+                        AppleMusicFloatingCircleButton(icon = PulseIcons.OpenInFull, onClick = { actions.onShowFullscreenLyrics() })
                     }
                 }
             }

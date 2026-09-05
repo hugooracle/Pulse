@@ -19,7 +19,7 @@ import pt.pulse.app.ui.component.EndOfPage
 import pt.pulse.app.ui.component.MoodAndGenresContentItem
 import pt.pulse.app.ui.component.NormalAppBar
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.MoodViewModel
 import org.jetbrains.compose.resources.painterResource
@@ -52,7 +52,7 @@ fun MoodScreen(
             leftIcon = {
                 IconButton(onClick = { navController.navigateUp() }) {
                     Icon(
-                        SimpIcons.ArrowBackIosNew,
+                        PulseIcons.ArrowBackIosNew,
                         contentDescription = "Back",
                     )
                 }

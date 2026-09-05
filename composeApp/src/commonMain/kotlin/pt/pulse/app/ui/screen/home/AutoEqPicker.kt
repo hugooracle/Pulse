@@ -35,7 +35,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import pt.pulse.app.ui.icon.DownloadForOffline
 import pt.pulse.app.ui.icon.DownloadForOfflineOutlined
 import pt.pulse.app.ui.icon.KeyboardArrowDown
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.AutoEqStatus
 import pt.pulse.app.viewModel.AutoEqViewModel
@@ -100,7 +100,7 @@ fun AutoEqPicker(
                     },
             )
             Icon(
-                imageVector = SimpIcons.KeyboardArrowDown,
+                imageVector = PulseIcons.KeyboardArrowDown,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.size(20.dp),
@@ -188,9 +188,9 @@ fun AutoEqPicker(
                                     Icon(
                                         imageVector =
                                             if (downloaded) {
-                                                SimpIcons.DownloadForOffline
+                                                PulseIcons.DownloadForOffline
                                             } else {
-                                                SimpIcons.DownloadForOfflineOutlined
+                                                PulseIcons.DownloadForOfflineOutlined
                                             },
                                         contentDescription = null,
                                         tint =

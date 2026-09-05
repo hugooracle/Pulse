@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import pt.pulse.app.ui.icon.PlayArrow
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.screen.home.wrapped.formatCount
 import pt.pulse.app.ui.screen.home.wrapped.wholeMinutes
 import pt.pulse.app.ui.theme.typo
@@ -114,7 +114,7 @@ fun WrappedEntryCard(
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Icon(
-                        imageVector = SimpIcons.PlayArrow,
+                        imageVector = PulseIcons.PlayArrow,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onPrimary,
                         modifier = Modifier.size(DISC_GLYPH_SIZE),

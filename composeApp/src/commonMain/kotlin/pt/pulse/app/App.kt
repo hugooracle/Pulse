@@ -73,7 +73,7 @@ import pt.pulse.app.ui.component.AppBottomNavigationBar
 import pt.pulse.app.ui.component.AppNavigationRail
 import pt.pulse.app.ui.component.LiquidGlassAppBottomNavigationBar
 import pt.pulse.app.ui.icon.ArrowForwardIos
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.AnalyticsDestination
 import pt.pulse.app.ui.navigation.destination.home.HomeDestination
 import pt.pulse.app.ui.navigation.destination.home.NotificationDestination
@@ -673,7 +673,7 @@ fun App(
                                                 navController = navController,
                                                 sharedViewModel = viewModel,
                                                 isExpanded = true,
-                                                dismissIcon = SimpIcons.ArrowForwardIos,
+                                                dismissIcon = PulseIcons.ArrowForwardIos,
                                             ) {
                                                 isShowNowPlaylistScreen = false
                                             }

@@ -37,7 +37,7 @@ import pt.pulse.app.ui.component.DevLogInType
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.LogoDev
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.LogInViewModel
 import pt.pulse.app.viewModel.SettingsViewModel
@@ -176,7 +176,7 @@ fun LoginScreen(
             navigationIcon = {
                 Box(Modifier.padding(horizontal = 5.dp)) {
                     RippleIconButton(
-                        SimpIcons.ArrowBackIosNew,
+                        PulseIcons.ArrowBackIosNew,
                         Modifier.size(32.dp),
                         true,
                     ) {
@@ -191,7 +191,7 @@ fun LoginScreen(
                     },
                 ) {
                     Icon(
-                        SimpIcons.LogoDev,
+                        PulseIcons.LogoDev,
                         "Developer Mode",
                     )
                 }

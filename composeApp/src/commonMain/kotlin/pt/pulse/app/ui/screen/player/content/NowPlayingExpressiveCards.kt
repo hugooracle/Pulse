@@ -97,7 +97,7 @@ import pt.pulse.app.ui.icon.Forward5
 import pt.pulse.app.ui.icon.Fullscreen
 import pt.pulse.app.ui.icon.Replay5
 import pt.pulse.app.ui.icon.Share
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.icon.Subtitles
 import pt.pulse.app.ui.icon.SubtitlesOff
 import pt.pulse.app.ui.icon.ThumbsUpDown
@@ -407,7 +407,7 @@ internal fun ExpressiveArtworkCardPage(
                                                 modifier = Modifier.align(Alignment.TopEnd),
                                             ) {
                                                 Icon(
-                                                    imageVector = SimpIcons.Fullscreen,
+                                                    imageVector = PulseIcons.Fullscreen,
                                                     contentDescription = "",
                                                     // Over-video control, not a semantic surface
                                                     // foreground — stays white like Classic.
@@ -435,7 +435,7 @@ internal fun ExpressiveArtworkCardPage(
                                                     },
                                                 ) {
                                                     Icon(
-                                                        imageVector = SimpIcons.Replay5,
+                                                        imageVector = PulseIcons.Replay5,
                                                         tint = Color.White,
                                                         contentDescription = "",
                                                         modifier =
@@ -459,7 +459,7 @@ internal fun ExpressiveArtworkCardPage(
                                                     },
                                                 ) {
                                                     Icon(
-                                                        imageVector = SimpIcons.Forward5,
+                                                        imageVector = PulseIcons.Forward5,
                                                         tint = Color.White,
                                                         contentDescription = "",
                                                         modifier =
@@ -479,9 +479,9 @@ internal fun ExpressiveArtworkCardPage(
                                                     Icon(
                                                         imageVector =
                                                             if (internalShowSubtitle) {
-                                                                SimpIcons.SubtitlesOff
+                                                                PulseIcons.SubtitlesOff
                                                             } else {
-                                                                SimpIcons.Subtitles
+                                                                PulseIcons.Subtitles
                                                             },
                                                         contentDescription = "",
                                                         tint = Color.White,
@@ -569,7 +569,7 @@ internal fun ExpressiveBelowTheFold(
                                     },
                                 ) {
                                     Icon(
-                                        imageVector = SimpIcons.ThumbsUpDown,
+                                        imageVector = PulseIcons.ThumbsUpDown,
                                         contentDescription = stringResource(Res.string.rate_lyrics),
                                         tint = colorScheme.onSurfaceVariant,
                                         modifier = Modifier.size(16.dp),
@@ -583,7 +583,7 @@ internal fun ExpressiveBelowTheFold(
                                 onClick = { showShareLyricsSheet = true },
                             ) {
                                 Icon(
-                                    imageVector = SimpIcons.Share,
+                                    imageVector = PulseIcons.Share,
                                     contentDescription = stringResource(Res.string.share_lyrics),
                                     tint = colorScheme.onSurfaceVariant,
                                     modifier = Modifier.size(16.dp),

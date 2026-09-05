@@ -54,7 +54,7 @@ import pt.pulse.core.logger.Logger
 import pt.pulse.app.extension.angledGradientBackground
 import pt.pulse.app.extension.isScrollingUp
 import pt.pulse.app.ui.icon.Add
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.LocalPlaylistDestination
 import pt.pulse.app.ui.navigation.destination.list.PlaylistDestination
@@ -169,7 +169,7 @@ internal inline fun <reified T> GridLibraryPlaylist(
                                     ) {
                                         Icon(
                                             modifier = Modifier.size(84.dp),
-                                            imageVector = SimpIcons.Add,
+                                            imageVector = PulseIcons.Add,
                                             tint = Color.White,
                                             contentDescription = null,
                                         )

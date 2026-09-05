@@ -73,7 +73,7 @@ import pt.pulse.app.extension.rgbFactor
 import pt.pulse.app.extension.smoothScrimBrush
 import pt.pulse.app.extension.toSquareThumbnailUrl
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.jetbrains.compose.resources.painterResource
@@ -214,7 +214,7 @@ fun CollapsingToolbarParallaxEffect(
                                 ),
                         ),
                 ) {
-                    Icon(SimpIcons.ArrowBackIosNew, "Back")
+                    Icon(PulseIcons.ArrowBackIosNew, "Back")
                 }
             }
         }
@@ -361,7 +361,7 @@ private fun Toolbar(
                             .size(24.dp),
                 ) {
                     Icon(
-                        imageVector = SimpIcons.ArrowBackIosNew,
+                        imageVector = PulseIcons.ArrowBackIosNew,
                         contentDescription = null,
                         tint = Color.White,
                     )

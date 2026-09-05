@@ -39,7 +39,7 @@ import androidx.navigation.NavController
 import pt.pulse.app.expect.openUrl
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.utils.VersionManager
 import dev.chrisbanes.haze.hazeEffect
@@ -175,7 +175,7 @@ fun CreditScreen(
         navigationIcon = {
             Box(Modifier.padding(horizontal = 5.dp)) {
                 RippleIconButton(
-                    SimpIcons.ArrowBackIosNew,
+                    PulseIcons.ArrowBackIosNew,
                     Modifier.size(32.dp),
                     true,
                     tint = MaterialTheme.colorScheme.onSurface,

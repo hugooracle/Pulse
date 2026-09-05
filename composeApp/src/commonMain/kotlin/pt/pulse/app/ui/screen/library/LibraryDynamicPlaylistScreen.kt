@@ -67,7 +67,7 @@ import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.PlayCircle
 import pt.pulse.app.ui.icon.Search
 import pt.pulse.app.ui.icon.Shuffle
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.AlbumDestination
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.screen.home.analytics.monthFullName
@@ -514,7 +514,7 @@ fun LibraryDynamicPlaylistScreen(
                 navigationIcon = {
                     Box(Modifier.padding(horizontal = 5.dp)) {
                         RippleIconButton(
-                            SimpIcons.ArrowBackIosNew,
+                            PulseIcons.ArrowBackIosNew,
                             Modifier
                                 .size(32.dp),
                             true,
@@ -527,7 +527,7 @@ fun LibraryDynamicPlaylistScreen(
                 actions = {
                     if (isSongType) {
                         RippleIconButton(
-                            SimpIcons.PlayCircle,
+                            PulseIcons.PlayCircle,
                             Modifier
                                 .size(48.dp),
                             fillMaxSize = true,
@@ -558,7 +558,7 @@ fun LibraryDynamicPlaylistScreen(
                             }
                         }
                         RippleIconButton(
-                            SimpIcons.Shuffle,
+                            PulseIcons.Shuffle,
                             Modifier.size(32.dp),
                             true,
                             tint = MaterialTheme.colorScheme.onBackground,
@@ -591,7 +591,7 @@ fun LibraryDynamicPlaylistScreen(
                     }
                     Box(Modifier.padding(horizontal = 5.dp)) {
                         RippleIconButton(
-                            if (showSearchBar) SimpIcons.Close else SimpIcons.Search,
+                            if (showSearchBar) PulseIcons.Close else PulseIcons.Search,
                             Modifier
                                 .size(32.dp),
                             true,
@@ -674,7 +674,7 @@ fun LibraryDynamicPlaylistScreen(
                                     style = typo().bodySmall,
                                 )
                             },
-                            leadingIcon = { Icon(SimpIcons.Search, contentDescription = null) },
+                            leadingIcon = { Icon(PulseIcons.Search, contentDescription = null) },
                         )
                     }
                 },

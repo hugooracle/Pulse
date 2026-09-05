@@ -56,7 +56,7 @@ import pt.pulse.app.ui.component.NowPlayingBottomSheet
 import pt.pulse.app.ui.component.QueueBottomSheet
 import pt.pulse.app.ui.component.VoteLyricsDialog
 import pt.pulse.app.ui.icon.KeyboardArrowDown
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.list.ArtistDestination
 import pt.pulse.app.ui.navigation.destination.player.FullscreenDestination
 import pt.pulse.app.ui.screen.player.content.NowPlayingContentActions
@@ -121,7 +121,7 @@ fun NowPlayingScreen(
             sharedViewModel = sharedViewModel,
             navController = navController,
             isExpanded = sheetState.currentValue == SheetValue.Expanded,
-            dismissIcon = SimpIcons.KeyboardArrowDown,
+            dismissIcon = PulseIcons.KeyboardArrowDown,
             onDismiss = {
                 hideSheet()
             },

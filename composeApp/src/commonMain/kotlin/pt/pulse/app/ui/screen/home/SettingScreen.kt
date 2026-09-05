@@ -130,7 +130,7 @@ import pt.pulse.app.ui.icon.Close
 import pt.pulse.app.ui.icon.Error
 import pt.pulse.app.ui.icon.PeopleAlt
 import pt.pulse.app.ui.icon.PlaylistAdd
-import pt.pulse.app.ui.icon.SimpIcons
+import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.CreditDestination
 import pt.pulse.app.ui.navigation.destination.login.DiscordLoginDestination
 import pt.pulse.app.ui.navigation.destination.login.LastfmLoginDestination
@@ -2837,7 +2837,7 @@ fun SettingScreen(
                                         .align(Alignment.CenterStart)
                                         .fillMaxHeight(),
                             ) {
-                                Icon(SimpIcons.Close, null, tint = MaterialTheme.colorScheme.onSurface)
+                                Icon(PulseIcons.Close, null, tint = MaterialTheme.colorScheme.onSurface)
                             }
                             Text(
                                 stringResource(Res.string.youtube_account),
@@ -2883,8 +2883,8 @@ fun SettingScreen(
                                                 .data(it.thumbnailUrl)
                                                 .crossfade(550)
                                                 .build(),
-                                        placeholder = rememberVectorPainter(SimpIcons.PeopleAlt),
-                                        error = rememberVectorPainter(SimpIcons.PeopleAlt),
+                                        placeholder = rememberVectorPainter(PulseIcons.PeopleAlt),
+                                        error = rememberVectorPainter(PulseIcons.PeopleAlt),
                                         contentDescription = it.name,
                                         modifier =
                                             Modifier
@@ -2922,14 +2922,14 @@ fun SettingScreen(
                     item {
                         Column {
                             ActionButton(
-                                icon = SimpIcons.PeopleAlt,
+                                icon = PulseIcons.PeopleAlt,
                                 text = Res.string.guest,
                             ) {
                                 viewModel.setUsedAccount(null)
                                 showYouTubeAccountDialog = false
                             }
                             ActionButton(
-                                icon = SimpIcons.Close,
+                                icon = PulseIcons.Close,
                                 text = Res.string.log_out,
                             ) {
                                 viewModel.setBasicAlertData(
@@ -2946,7 +2946,7 @@ fun SettingScreen(
                                 )
                             }
                             ActionButton(
-                                icon = SimpIcons.PlaylistAdd,
+                                icon = PulseIcons.PlaylistAdd,
                                 text = Res.string.add_an_account,
                             ) {
                                 showYouTubeAccountDialog = false
@@ -3004,7 +3004,7 @@ fun SettingScreen(
                                 },
                                 trailingIcon = {
                                     if (!verify.first) {
-                                        SimpIcons.Error
+                                        PulseIcons.Error
                                     }
                                 },
                                 modifier =
@@ -3218,7 +3218,7 @@ fun SettingScreen(
                             navigationIcon = {
                                 Box(Modifier.padding(horizontal = 5.dp)) {
                                     RippleIconButton(
-                                        SimpIcons.ArrowBackIosNew,
+                                        PulseIcons.ArrowBackIosNew,
                                         Modifier
                                             .size(32.dp),
                                         true,
@@ -3263,7 +3263,7 @@ fun SettingScreen(
             navigationIcon = {
                 Box(Modifier.padding(horizontal = 5.dp)) {
                     RippleIconButton(
-                        SimpIcons.ArrowBackIosNew,
+                        PulseIcons.ArrowBackIosNew,
                         Modifier
                             .size(32.dp),
                         true,
