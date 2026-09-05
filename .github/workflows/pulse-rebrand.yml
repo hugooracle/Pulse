@@ -1,0 +1,26 @@
+name: Pulse full rebrand
+
+on:
+  push:
+    branches:
+      - refactor/pulse-full-rebrand
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebrand:
+    if: github.actor == 'hugooracle'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Smoke check
+        run: |
+          echo "Pulse rebrand runner available"
+          git status --short
