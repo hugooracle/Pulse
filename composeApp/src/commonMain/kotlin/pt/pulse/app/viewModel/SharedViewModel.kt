@@ -309,7 +309,7 @@ class SharedViewModel(
 //            controllerStateJob.join()
         }
 
-        runBlocking {
+        viewModelScope.launch {
             dataStoreManager.getString("miniplayer_guide").first().let {
                 isFirstMiniplayer = it != STATUS_DONE
             }
@@ -933,8 +933,10 @@ class SharedViewModel(
     }
 
     fun getLocation() {
-        regionCode = runBlocking { dataStoreManager.location.first() }
-        language = runBlocking { dataStoreManager.getString(SELECTED_LANGUAGE).first() }
+        viewModelScope.launch {
+            regionCode = dataStoreManager.location.first()
+            language = dataStoreManager.getString(SELECTED_LANGUAGE).first()
+        }
     }
 
     private fun checkAllDownloadingLocalPlaylists() {
