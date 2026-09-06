@@ -84,7 +84,7 @@
 -keep class org.jsoup.** { *; }
 -dontwarn org.jsoup.**
 
--keep class com.maxrave.domain.data.model.** { *; }
+-keep class pt.pulse.core.domain.data.model.** { *; }
 -keep class com.mohamedrejeb.ksoup.html.** { *; }
 -keep class org.schabi.newpipe.extractor.downloader.** { *; }
 -keep class dev.maxrave.pipepipe.extractor.downloader.** { *; }
@@ -158,10 +158,10 @@
 
 -dontwarn org.slf4j.impl.StaticLoggerBinder
 -dontwarn kotlinx.serialization.internal.ClassValueReferences
--keep class com.maxrave.simpmusic.data.model.** { *; }
--keep class com.maxrave.simpmusic.extension.AllExtKt { *; }
--keep class com.maxrave.simpmusic.extension.AllExtKt$* { *; }
--keep class com.maxrave.kotlinytmusicscraper.extension.MapExtKt$* { *; }
+-keep class pt.pulse.app.data.model.** { *; }
+-keep class pt.pulse.app.extension.AllExtKt { *; }
+-keep class pt.pulse.app.extension.AllExtKt$* { *; }
+-keep class pt.pulse.core.kotlinytmusicscraper.extension.MapExtKt$* { *; }
 
 ## Removes all Logs as they cause perfomance issues in prod
 #-assumenosideeffects class android.util.Log {
@@ -248,7 +248,7 @@
 -keep class com.liskovsoft.** { *; }
 -keep interface com.liskovsoft.** { *; }
 -keep class com.eclipsesource.v8.** { *; }
--keep class com.maxrave.kotlinytmusicscraper.** { *; }
+-keep class pt.pulse.core.kotlinytmusicscraper.** { *; }
 
 -dontwarn javax.script.AbstractScriptEngine
 -dontwarn javax.script.Bindings
@@ -302,21 +302,21 @@
 -dontwarn java.beans.Introspector
 -dontwarn java.beans.PropertyDescriptor
 
--dontwarn com.maxrave.data.di.loader.LoaderKt
--dontwarn com.maxrave.media3.ui.MediaPlayerViewKt
+-dontwarn pt.pulse.core.data.di.loader.LoaderKt
+-dontwarn pt.pulse.core.media3.ui.MediaPlayerViewKt
 
--keep class com.maxrave.data.di.loader.LoaderKt { *; }
--keep class com.maxrave.data.mapping.MappingKt { *; }
--keep class com.maxrave.data.extension.** { *; }
--keep class com.maxrave.data.di.** { *; }
+-keep class pt.pulse.core.data.di.loader.LoaderKt { *; }
+-keep class pt.pulse.core.data.mapping.MappingKt { *; }
+-keep class pt.pulse.core.data.extension.** { *; }
+-keep class pt.pulse.core.data.di.** { *; }
 
--keep class com.maxrave.kotlinytmusicscraper.** { *; }
+-keep class pt.pulse.core.kotlinytmusicscraper.** { *; }
 
--keep class org.simpmusic.lyrics.parser.** { *; }
--keep class org.simpmusic.lyrics.models.** { *; }
--keep class org.simpmusic.nowplayingcenter.** { *; }
+-keep class pt.pulse.service.lyrics.parser.** { *; }
+-keep class pt.pulse.service.lyrics.models.** { *; }
+-keep class pt.pulse.service.nowplayingcenter.** { *; }
 -keep class io.github.selemba1000.** { *; }
--keep class com.simpmusic.lyrics.parser.** { *; }
+-keep class pt.pulse.lyrics.parser.** { *; }
 
 # dbus-java (used by JMTC/NPYC for Linux MPRIS)
 -keep class org.freedesktop.dbus.** { *; }

@@ -40,7 +40,7 @@
         </intent>
     </queries>
     <queries>
-        <package android:name="com.maxrave.simpmusic" />
+        <package android:name="pt.pulse.app" />
     </queries>
     <queries>
         <intent>
@@ -49,11 +49,11 @@
     </queries>
 
     <application
-        android:name=".SimpMusicApplication"
+        android:name=".PulseApplication"
         android:allowBackup="true"
         android:appCategory="audio"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/pulse_icon"
         android:label="@string/app_name"
         android:localeConfig="@xml/locale_config"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -142,30 +142,18 @@
                 <data android:scheme="vnd.youtube.launch" />
             </intent-filter>
 
-            <!-- SimpMusic deep link filter (https) -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="https" />
-                <data android:host="simpmusic.org" />
-                <data android:pathPrefix="/app/" />
-            </intent-filter>
-
-            <!-- SimpMusic deep link filter (custom scheme) -->
+            <!-- Pulse deep link filter (custom scheme) -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="simpmusic" />
+                <data android:scheme="pulse" />
             </intent-filter>
 
             <!-- Last.fm auth callback. The scheme is fixed by the callback URL registered on the
-                 Last.fm API account, so it is not "simpmusic". -->
+                 Last.fm API account, so it is not "pulse". -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -224,7 +212,7 @@
                 android:value="true" />
         </service>
         <service
-            android:name="com.maxrave.media3.service.SimpleMediaService"
+            android:name="pt.pulse.core.media3.service.SimpleMediaService"
             android:exported="true"
             android:foregroundServiceType="mediaPlayback"
             android:stopWithTask="false"
@@ -237,7 +225,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.maxrave.media3.service.download.MusicDownloadService"
+            android:name="pt.pulse.core.media3.service.download.MusicDownloadService"
             android:exported="true"
             android:foregroundServiceType="dataSync">
             <intent-filter>
@@ -264,7 +252,7 @@
             android:value="8" />
 
         <service
-            android:name="com.maxrave.media3.carapp.SimpMusicCarAppService"
+            android:name="pt.pulse.core.media3.carapp.PulseCarAppService"
             android:exported="true"
             tools:ignore="ExportedService">
             <intent-filter>

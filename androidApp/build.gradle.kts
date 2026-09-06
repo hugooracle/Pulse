@@ -16,7 +16,7 @@ plugins {
 android {
     val abis = arrayOf("armeabi-v7a", "arm64-v8a", "x86_64")
 
-    namespace = "com.maxrave.simpmusic"
+    namespace = "pt.pulse.app"
     compileSdk = 37
 
     defaultConfig {
@@ -186,7 +186,7 @@ dependencies {
 }
 
 sentry {
-    org.set("simpmusic")
+    org.set("pulse")
     projectName.set("android")
     ignoredFlavors.set(setOf("foss"))
     ignoredBuildTypes.set(setOf("debug"))

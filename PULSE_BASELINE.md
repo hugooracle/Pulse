@@ -1,8 +1,8 @@
 # Pulse baseline
 
-Pulse is a derivative of SimpMusic under GPL-3.0.
+Pulse is a derivative of Pulse under GPL-3.0.
 
-- Upstream: `maxrave-dev/SimpMusic`
+- Upstream: `hugooracle/Pulse`
 - Upstream branch: `dev`
 - Pulse fork owner: `hugooracle`
 - Initial Pulse baseline date: 2026-09-05

@@ -1,7 +1,7 @@
 # Pulse rebrand status
 
 ## Applied
-- Repository is a real fork of `maxrave-dev/SimpMusic`.
+- Repository is a real fork of `hugooracle/Pulse`.
 - Pulse project documentation added.
 
 ## In progress

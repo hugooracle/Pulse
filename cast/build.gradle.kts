@@ -12,7 +12,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.simpmusic.cast"
+    namespace = "pt.pulse.service.cast"
     compileSdk = 37
 
     defaultConfig {

@@ -11,7 +11,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.simpmusic.crashlytics"
+    namespace = "pt.pulse.service.crashlytics"
     compileSdk = 37
 
     defaultConfig {

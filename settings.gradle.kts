@@ -32,7 +32,7 @@ plugins {
 
 // Core modules live in the `core` git submodule INSIDE this repo.
 // We intentionally resolve ONLY the in-repo submodule and no longer probe a
-// sibling `../core` outside SimpMusic: another project may share the same folder
+// sibling `../core` outside Pulse: another project may share the same folder
 // name one level up and must never be bound accidentally.
 val coreDir = File(rootDir, "core")
 val serviceDir = File(rootDir, "core/service")
@@ -40,9 +40,9 @@ val mediaDir = File(rootDir, "core/media")
 
 // Keep the original internal Gradle project name for now. Compose Multiplatform
 // derives the generated resources package from it, and the existing code imports
-// simpmusic.composeapp.generated.resources.* throughout the project. The public
+// pulse.composeapp.generated.resources.* throughout the project. The public
 // product identity remains Pulse via app_name and the Android applicationId.
-rootProject.name = "SimpMusic"
+rootProject.name = "Pulse"
 include(
     ":androidApp",
     ":composeApp",
