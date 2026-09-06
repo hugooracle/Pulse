@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.net.toUri
 import androidx.core.os.LocaleListCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
@@ -39,6 +40,8 @@ import pt.pulse.app.service.test.notification.NotifyWork
 import pt.pulse.app.utils.ComposeResUtils
 import pt.pulse.app.utils.VersionManager
 import pt.pulse.app.viewModel.SharedViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
@@ -208,13 +211,15 @@ class MainActivity : AppCompatActivity() {
                     val wasAsked = getString("notification_permission_asked")
                     if (wasAsked != "true") {
                         // First time: request system permission
-                        EasyPermissions.requestPermissions(
-                            this,
-                            runBlocking { ComposeResUtils.getResString(ComposeResUtils.StringType.NOTIFICATION_REQUEST) },
-                            1,
-                            Manifest.permission.POST_NOTIFICATIONS,
-                        )
-                        putString("notification_permission_asked", "true")
+                        lifecycleScope.launch {
+                            EasyPermissions.requestPermissions(
+                                this@MainActivity,
+                                ComposeResUtils.getResString(ComposeResUtils.StringType.NOTIFICATION_REQUEST),
+                                1,
+                                Manifest.permission.POST_NOTIFICATIONS,
+                            )
+                            putString("notification_permission_asked", "true")
+                        }
                     } else {
                         // Already asked before: show custom dialog with "Don't show again"
                         viewModel.showNotificationPermissionDialog()
@@ -273,8 +278,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkForUpdate() {
-        if (viewModel.shouldCheckForUpdate()) {
-            viewModel.checkForUpdate()
+        lifecycleScope.launch(Dispatchers.IO) {
+            if (viewModel.shouldCheckForUpdate()) {
+                viewModel.checkForUpdate()
+            }
         }
     }
 
