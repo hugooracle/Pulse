@@ -18,8 +18,6 @@ import multiplatform.network.cmptoast.showToast
 import org.jetbrains.compose.resources.StringResource
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pulse.composeapp.generated.resources.Res
-import pulse.composeapp.generated.resources.loading
 
 abstract class BaseViewModel :
     ViewModel(),
