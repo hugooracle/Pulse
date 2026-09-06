@@ -230,8 +230,8 @@ nucleus-notification = { module = "dev.nucleusframework:nucleus.notification-com
 #JVM
 jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
 jna-platform = { module = "net.java.dev.jna:jna-platform", version.ref = "jnaPlatform" }
-nowplaying = { module = "pt.pulse.service:nowplayingcenter", version = "0.0.3" }
-jmtc = { module = "pt.pulse.service:jmtc", version = "0.0.3" }
+nowplaying = { module = "org.simpmusic:nowplayingcenter", version = "0.0.3" }
+jmtc = { module = "org.simpmusic:jmtc", version = "0.0.3" }
 
 #Koin
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
