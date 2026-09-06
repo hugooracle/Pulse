@@ -43,8 +43,7 @@ import io.ktor.http.Url
  * wrong one ends on a hard seam where the glow stops — see HomeScreen's pageBackground note.
  *
  * Screens that need more than this stay hand-rolled on purpose: Mix for you animates the tone from
- * its first playlist's artwork, and the Listen Together pair paint the glow inside a liquid-glass
- * backdrop source so their floating back button has something to refract.
+ * its first playlist's artwork.
  */
 /** How tall the glow is — callers gate their bar frost on "has this fully scrolled past". */
 val AmbientGlowHeight = 360.dp

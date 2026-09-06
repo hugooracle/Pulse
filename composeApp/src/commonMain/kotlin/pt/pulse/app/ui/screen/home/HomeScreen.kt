@@ -112,7 +112,6 @@ import pt.pulse.app.ui.component.HomeItem
 import pt.pulse.app.ui.component.HomeItemContentPlaylist
 import pt.pulse.app.ui.component.HomeShimmer
 import pt.pulse.app.ui.component.ItemArtistChart
-import pt.pulse.app.ui.component.ListenTogetherIconButton
 import pt.pulse.app.ui.component.MoodMomentAndGenreHomeItem
 import pt.pulse.app.ui.component.NowPlayingBottomSheet
 import pt.pulse.app.ui.component.OfflineErrorState
@@ -127,7 +126,6 @@ import pt.pulse.app.ui.icon.Notifications
 import pt.pulse.app.ui.icon.Settings
 import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.navigation.destination.home.HomeDestination
-import pt.pulse.app.ui.navigation.destination.home.ListenTogetherDestination
 import pt.pulse.app.ui.navigation.destination.home.MoodDestination
 import pt.pulse.app.ui.navigation.destination.home.NotificationDestination
 import pt.pulse.app.ui.navigation.destination.home.RecentlySongsDestination
@@ -882,8 +880,6 @@ fun HomeTopAppBar(navController: NavController) {
             RippleIconButton(imageVector = PulseIcons.History, tint = MaterialTheme.colorScheme.onBackground) {
                 navController.navigate(RecentlySongsDestination)
             }
-            // Fourth button, immediately before Settings — the position the design canvas fixes.
-            ListenTogetherIconButton { navController.navigate(ListenTogetherDestination) }
             RippleIconButton(imageVector = PulseIcons.Settings, tint = MaterialTheme.colorScheme.onBackground) {
                 navController.navigate(SettingsDestination)
             }

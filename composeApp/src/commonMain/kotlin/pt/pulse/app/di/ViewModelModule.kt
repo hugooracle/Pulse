@@ -3,8 +3,6 @@ package pt.pulse.app.di
 import pt.pulse.app.viewModel.AlbumViewModel
 import pt.pulse.app.utils.VersionManager
 import pt.pulse.app.viewModel.AnalyticsViewModel
-import pt.pulse.app.viewModel.ListenTogetherSettingsViewModel
-import pt.pulse.app.viewModel.ListenTogetherViewModel
 import pt.pulse.app.viewModel.ArtistViewModel
 import pt.pulse.app.viewModel.HomeViewModel
 import pt.pulse.app.viewModel.ImportViewModel
@@ -184,16 +182,6 @@ val viewModelModule =
                 get(),
                 get(),
                 get(),
-            )
-        }
-        viewModel {
-            ListenTogetherSettingsViewModel(get())
-        }
-        viewModel {
-            ListenTogetherViewModel(
-                repository = get(),
-                dataStore = get(),
-                bridge = get(),
             )
         }
 

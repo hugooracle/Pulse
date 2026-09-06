@@ -159,8 +159,6 @@
 -dontwarn pt.pulse.core.spotify.model.response.spotify.search.SpotifySearchResponse$Data$Search
 -dontwarn pt.pulse.core.spotify.model.response.spotify.search.SpotifySearchResponse$Data
 -dontwarn pt.pulse.core.spotify.model.response.spotify.search.SpotifySearchResponse
--dontwarn pt.pulse.service.aiservice.AIHost
--dontwarn pt.pulse.service.aiservice.AiClient
 -dontwarn pt.pulse.service.lyrics.PulseLyricsClient
 -dontwarn pt.pulse.service.lyrics.domain.Lyrics$LyricsX$Line
 -dontwarn pt.pulse.service.lyrics.domain.Lyrics$LyricsX

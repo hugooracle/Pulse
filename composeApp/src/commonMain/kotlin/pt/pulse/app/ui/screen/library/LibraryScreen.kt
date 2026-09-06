@@ -74,7 +74,6 @@ import pt.pulse.app.ui.component.LibraryItem
 import pt.pulse.app.ui.component.LibraryItemState
 import pt.pulse.app.ui.component.LibraryItemType
 import pt.pulse.app.ui.component.LibraryTilingBox
-import pt.pulse.app.ui.component.ListenTogetherIconButton
 import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.component.selection.SelectedSongsBottomSheet
 import pt.pulse.app.ui.component.selection.SongSelectionTopAppBar
@@ -82,7 +81,6 @@ import pt.pulse.app.ui.component.selection.rememberSongSelectionState
 import pt.pulse.app.ui.icon.Groups
 import pt.pulse.app.ui.icon.PeopleAlt
 import pt.pulse.app.ui.icon.PulseIcons
-import pt.pulse.app.ui.navigation.destination.home.ListenTogetherDestination
 import pt.pulse.app.ui.theme.typo
 import pt.pulse.app.viewModel.LibraryViewModel
 import pt.pulse.app.viewModel.SongSelectionViewModel
@@ -492,11 +490,6 @@ fun LibraryScreen(
                                 .clip(CircleShape),
                     )
                 }
-            },
-            // The Library bar had no actions slot at all — added for the Listen Together entry,
-            // which the design canvas puts on Home AND Library.
-            actions = {
-                ListenTogetherIconButton { navController.navigate(ListenTogetherDestination) }
             },
         )
         AnimatedVisibility(visible = selectionState.isActive) {

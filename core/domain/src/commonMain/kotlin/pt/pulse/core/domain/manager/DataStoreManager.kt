@@ -386,30 +386,6 @@ interface DataStoreManager {
 
     suspend fun setVisitorData(visitorData: String)
 
-    suspend fun setAIProvider(provider: String)
-
-    val aiProvider: Flow<String>
-
-    suspend fun setAIApiKey(apiKey: String)
-
-    val aiApiKey: Flow<String>
-
-    val useAITranslation: Flow<String>
-
-    suspend fun setUseAITranslation(use: Boolean)
-
-    val customModelId: Flow<String>
-
-    suspend fun setCustomModelId(modelId: String)
-
-    val customOpenAIBaseUrl: Flow<String>
-
-    suspend fun setCustomOpenAIBaseUrl(baseUrl: String)
-
-    val customOpenAIHeaders: Flow<String>
-
-    suspend fun setCustomOpenAIHeaders(headers: String)
-
     val localPlaylistFilter: Flow<String>
 
     suspend fun setLocalPlaylistFilter(filter: String)
@@ -582,7 +558,6 @@ interface DataStoreManager {
         const val LRCLIB = "lrclib"
         const val BETTER_LYRICS = "better_lyrics"
 
-        const val FDROID = "fdroid"
         const val GITHUB_FOSS_NIGHTLY = "github_foss_nightly"
         const val GITHUB = "github_release"
 
@@ -614,11 +589,6 @@ interface DataStoreManager {
 
         const val PROXY_TYPE_HTTP = "http"
         const val PROXY_TYPE_SOCKS = "socks"
-
-        // AI
-        const val AI_PROVIDER_GEMINI = "gemini"
-        const val AI_PROVIDER_OPENAI = "openai"
-        const val AI_PROVIDER_CUSTOM_OPENAI = "custom_openai"
 
         const val LOCAL_PLAYLIST_FILTER_OLDER_FIRST = "older_first"
         const val LOCAL_PLAYLIST_FILTER_NEWER_FIRST = "newer_first"

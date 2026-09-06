@@ -19,7 +19,6 @@ import pt.pulse.core.domain.data.entities.NewFormatEntity
 import pt.pulse.core.domain.data.entities.PlaylistEntity
 import pt.pulse.core.domain.data.entities.SongEntity
 import pt.pulse.core.domain.data.entities.SongInfoEntity
-import pt.pulse.core.domain.data.entities.TranslatedLyricsEntity
 import pt.pulse.core.domain.data.model.browse.album.Track
 import pt.pulse.core.domain.data.model.canvas.CanvasResult
 import pt.pulse.core.domain.data.model.download.DownloadProgress
@@ -58,7 +57,6 @@ import pt.pulse.core.domain.utils.toListName
 import pt.pulse.core.domain.utils.toLyrics
 import pt.pulse.core.domain.utils.toLyricsEntity
 import pt.pulse.core.domain.utils.toSongEntity
-import pt.pulse.core.domain.utils.toSyncedLyrics
 import pt.pulse.core.domain.utils.toTrack
 import pt.pulse.core.logger.LogLevel
 import pt.pulse.core.logger.Logger
@@ -747,10 +745,6 @@ class SharedViewModel(
                         false,
                         LyricsProvider.OFFLINE,
                     )
-                    getAITranslationLyrics(
-                        track.videoId,
-                        lyricsData,
-                    )
                 }
             }
         }
@@ -1042,28 +1036,12 @@ class SharedViewModel(
     fun checkForUpdate() {
         viewModelScope.launch {
             _isCheckingUpdate.value = true
-            val updateChannel = dataStoreManager.updateChannel.first()
             dataStoreManager.putString(
                 "CheckForUpdateAt",
                 System.currentTimeMillis().toString(),
             )
-            if (updateChannel == DataStoreManager.GITHUB) {
+            run {
                 updateRepository.checkForGithubReleaseUpdate().collectLatest { response ->
-                    val data = response.data
-                    when (response) {
-                        is Resource.Success if (data != null) -> {
-                            _updateResponse.value = data
-                            showedUpdateDialog = true
-                        }
-
-                        else -> {
-                            log("Check for update error: ${response.message}", LogLevel.WARN)
-                        }
-                    }
-                    _isCheckingUpdate.value = false
-                }
-            } else if (updateChannel == DataStoreManager.FDROID) {
-                updateRepository.checkForFdroidUpdate().collectLatest { response ->
                     val data = response.data
                     when (response) {
                         is Resource.Success if (data != null) -> {
@@ -1118,8 +1096,7 @@ class SharedViewModel(
                     },
             )
 
-        if (isTranslatedLyrics && lyricsProvider != LyricsProvider.AI) {
-            // Skip sync validation for AI translations — timestamps are copied programmatically
+        if (isTranslatedLyrics) {
             val originalLyrics = _nowPlayingScreenData.value.lyricsData?.lyrics
             val originalLines = originalLyrics?.lines
             val lyricsLines = lyrics.lines
@@ -1208,12 +1185,6 @@ class SharedViewModel(
                                         }
                                     }
                             }
-                        }
-                        nowPlayingScreenData.value.lyricsData?.lyrics?.let {
-                            getAITranslationLyrics(
-                                videoId,
-                                it,
-                            )
                         }
                     }
                     return
@@ -1408,10 +1379,7 @@ class SharedViewModel(
                 insertLyrics(
                     data.toLyricsEntity(videoId),
                 )
-                getPulseTranslatedLyrics(
-                    videoId,
-                    data,
-                )
+                getPulseTranslatedLyrics(videoId)
             } else if (dataStoreManager.spotifyLyrics.first() == TRUE) {
                 getSpotifyLyrics(
                     song.toTrack().copy(durationSeconds = duration),
@@ -1459,11 +1427,6 @@ class SharedViewModel(
                                 true,
                                 LyricsProvider.YOUTUBE,
                             )
-                        } else {
-                            getAITranslationLyrics(
-                                videoId,
-                                lyrics,
-                            )
                         }
                     }
 
@@ -1507,10 +1470,6 @@ class SharedViewModel(
                                     song.videoId,
                                 ) ?: return@collectLatest,
                             )
-                            getAITranslationLyrics(
-                                song.videoId,
-                                data,
-                            )
                         }
 
                         else -> {
@@ -1553,10 +1512,6 @@ class SharedViewModel(
                                     song.videoId,
                                 ),
                             )
-                            getAITranslationLyrics(
-                                song.videoId,
-                                data,
-                            )
                         }
 
                         else -> {
@@ -1573,20 +1528,16 @@ class SharedViewModel(
         }
     }
 
-    private suspend fun getPulseTranslatedLyrics(
-        videoId: String,
-        lyrics: Lyrics,
-    ) {
+    private suspend fun getPulseTranslatedLyrics(videoId: String) {
         val translationLanguage =
             dataStoreManager.translationLanguage.first()
         lyricsCanvasRepository.getPulseTranslatedLyrics(videoId, translationLanguage).collectLatest { response ->
             val data = response.data
             when (response) {
                 is Resource.Success if (data != null) -> {
-                    // If Pulse translated lyrics are RICH_SYNCED (word-by-word),
-                    // convert to LINE_SYNCED, downvote, and fallback to AI translation
+                    // Translated lyrics must use line-level synchronization.
                     if (data.syncType == "RICH_SYNCED") {
-                        Logger.w(tag, "Pulse translated lyrics are RICH_SYNCED, downvoting and falling back to AI")
+                        Logger.w(tag, "Pulse translated lyrics are RICH_SYNCED; downvoting unsupported translation")
                         val pulseLyricsId = data.pulseLyrics?.id
                         if (!pulseLyricsId.isNullOrEmpty()) {
                             viewModelScope.launch {
@@ -1600,8 +1551,6 @@ class SharedViewModel(
                                     }
                             }
                         }
-                        // Fallback to AI translation
-                        getAITranslationLyrics(videoId, lyrics)
                     } else {
                         Logger.d(tag, "Get Pulse Translated Lyrics Success")
                         updateLyrics(
@@ -1616,81 +1565,7 @@ class SharedViewModel(
 
                 else -> {
                     Logger.w(tag, "Get Pulse Translated Lyrics Error: ${response.message}")
-                    getAITranslationLyrics(
-                        videoId,
-                        lyrics,
-                    )
                 }
-            }
-        }
-    }
-
-    private suspend fun getAITranslationLyrics(
-        videoId: String,
-        lyrics: Lyrics,
-    ) {
-        Logger.d(tag, "Get AI Translation Lyrics for $videoId")
-        if (dataStoreManager.useAITranslation.first() == TRUE &&
-            dataStoreManager.aiApiKey.first().isNotEmpty() &&
-            dataStoreManager.enableTranslateLyric.first() == FALSE
-        ) {
-            val savedTranslatedLyrics =
-                lyricsCanvasRepository
-                    .getSavedTranslatedLyrics(
-                        videoId,
-                        dataStoreManager.translationLanguage.first(),
-                    ).firstOrNull()
-            if (savedTranslatedLyrics != null) {
-                Logger.d(tag, "Get Saved Translated Lyrics")
-                updateLyrics(
-                    videoId,
-                    0,
-                    savedTranslatedLyrics.toLyrics(),
-                    true,
-                    LyricsProvider.AI,
-                )
-            } else {
-                // Convert RICH_SYNCED to LINE_SYNCED before sending to AI
-                // AI should only work with line-level or plain lyrics
-                val lyricsForAi =
-                    if (lyrics.syncType == "RICH_SYNCED") {
-                        lyrics.toSyncedLyrics()
-                    } else {
-                        lyrics
-                    }
-                lyricsCanvasRepository
-                    .getAITranslationLyrics(
-                        lyricsForAi,
-                        dataStoreManager.translationLanguage.first(),
-                    ).cancellable()
-                    .collectLatest {
-                        val data = it.data
-                        when (it) {
-                            is Resource.Success if (data != null) -> {
-                                Logger.d(tag, "Get AI Translate Lyrics Success")
-                                lyricsCanvasRepository.insertTranslatedLyrics(
-                                    TranslatedLyricsEntity(
-                                        videoId = videoId,
-                                        language = dataStoreManager.translationLanguage.first(),
-                                        error = false,
-                                        lines = data.lines,
-                                        syncType = data.syncType,
-                                    ),
-                                )
-                                updateLyrics(
-                                    videoId,
-                                    0,
-                                    data,
-                                    true,
-                                    LyricsProvider.AI,
-                                )
-                            }
-
-                            else -> {
-                                Logger.w(tag, "Get AI Translate Lyrics Error: ${it.message}")
-                            }
-                        }
-                    }
             }
         }
     }
@@ -1719,10 +1594,6 @@ class SharedViewModel(
                                 data,
                                 false,
                                 LyricsProvider.SPOTIFY,
-                            )
-                            getAITranslationLyrics(
-                                track.videoId,
-                                data,
                             )
                         }
                     }
@@ -2105,7 +1976,6 @@ enum class LyricsProvider {
     SPOTIFY,
     LRCLIB,
     BETTER_LYRICS,
-    AI,
     OFFLINE,
 }
 
