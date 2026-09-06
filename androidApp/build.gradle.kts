@@ -14,8 +14,6 @@ plugins {
 }
 
 android {
-    val abis = arrayOf("armeabi-v7a", "arm64-v8a", "x86_64")
-
     namespace = "pt.pulse.app"
     compileSdk = 37
 
@@ -69,8 +67,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters.add("x86_64")
-            abiFilters.add("armeabi-v7a")
             abiFilters.add("arm64-v8a")
         }
     }
@@ -89,14 +85,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
-            splits {
-                abi {
-                    isEnable = true
-                    reset()
-                    isUniversalApk = true
-                    include(*abis)
-                }
-            }
         }
         debug {
             isMinifyEnabled = false
