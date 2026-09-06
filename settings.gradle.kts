@@ -30,18 +30,11 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-// Core modules live in the `core` git submodule INSIDE this repo.
-// We intentionally resolve ONLY the in-repo submodule and no longer probe a
-// sibling `../core` outside Pulse: another project may share the same folder
-// name one level up and must never be bound accidentally.
+// Core modules live inside this repository.
 val coreDir = File(rootDir, "core")
 val serviceDir = File(rootDir, "core/service")
 val mediaDir = File(rootDir, "core/media")
 
-// Keep the original internal Gradle project name for now. Compose Multiplatform
-// derives the generated resources package from it, and the existing code imports
-// pulse.composeapp.generated.resources.* throughout the project. The public
-// product identity remains Pulse via app_name and the Android applicationId.
 rootProject.name = "Pulse"
 include(
     ":androidApp",
@@ -53,7 +46,6 @@ include(
     ":ktorExt",
     ":kotlinYtmusicScraper",
     ":spotify",
-    ":aiService",
     ":autoEqService",
     ":lyricsService",
     ":media-jvm",
@@ -67,7 +59,6 @@ include(
     ":lastfm",
     ":lastfm-empty",
     ":kizzy",
-    ":listenTogether",
 )
 
 // core modules
@@ -77,13 +68,11 @@ project(":domain").projectDir = File(coreDir, "domain")
 
 // service modules
 project(":ktorExt").projectDir = File(serviceDir, "ktorExt")
-project(":aiService").projectDir = File(serviceDir, "aiService")
 project(":autoEqService").projectDir = File(serviceDir, "autoEqService")
 project(":lyricsService").projectDir = File(serviceDir, "lyricsService")
 project(":kotlinYtmusicScraper").projectDir = File(serviceDir, "kotlinYtmusicScraper")
 project(":spotify").projectDir = File(serviceDir, "spotify")
 project(":kizzy").projectDir = File(serviceDir, "kizzy")
-project(":listenTogether").projectDir = File(serviceDir, "listenTogether")
 
 // media modules
 project(":media-jvm").projectDir = File(mediaDir, "media-jvm")
