@@ -81,15 +81,18 @@ abstract class BaseViewModel :
         }
 
     // Loading dialog
-    private val _showLoadingDialog: MutableStateFlow<Pair<Boolean, String>> = MutableStateFlow(false to getString(Res.string.loading))
+    // Do not resolve Compose resources while constructing a ViewModel. On Android this constructor
+    // runs on the main thread, and blocking resource resolution here can deadlock before the first
+    // frame is drawn (the app then appears as a blank screen and eventually raises an ANR).
+    private val _showLoadingDialog: MutableStateFlow<Pair<Boolean, String>> = MutableStateFlow(false to "")
     val showLoadingDialog: StateFlow<Pair<Boolean, String>> get() = _showLoadingDialog
 
     fun showLoadingDialog(message: String? = null) {
-        _showLoadingDialog.value = true to (message ?: getString(Res.string.loading))
+        _showLoadingDialog.value = true to (message ?: _showLoadingDialog.value.second)
     }
 
     fun hideLoadingDialog() {
-        _showLoadingDialog.value = false to getString(Res.string.loading)
+        _showLoadingDialog.value = false to _showLoadingDialog.value.second
     }
 
     private fun getNowPlayingVideoId() {
