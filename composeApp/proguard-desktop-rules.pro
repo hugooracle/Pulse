@@ -314,7 +314,6 @@
 
 -keep class pt.pulse.service.lyrics.parser.** { *; }
 -keep class pt.pulse.service.lyrics.models.** { *; }
--keep class pt.pulse.service.nowplayingcenter.** { *; }
 -keep class io.github.selemba1000.** { *; }
 -keep class pt.pulse.lyrics.parser.** { *; }
 

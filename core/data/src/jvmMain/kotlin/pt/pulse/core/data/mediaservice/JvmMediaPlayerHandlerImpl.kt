@@ -98,9 +98,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import org.koin.mp.KoinPlatform.getKoin
-import pt.pulse.service.nowplayingcenter.NPYC
-import pt.pulse.service.nowplayingcenter.domain.NowPlayingListener
-import pt.pulse.service.nowplayingcenter.domain.Platform
 import java.util.concurrent.atomic.AtomicLong
 import kotlin.math.PI
 import kotlin.math.cos
@@ -119,37 +116,12 @@ class JvmMediaPlayerHandlerImpl(
     MediaPlayerListener {
     private val backgroundScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
-    // Linux (MPRIS) and Windows (SMTC) both go through NPYC/JMTC; macOS uses the
-    // dedicated MacOSMediaIntegration below. runCatching keeps a failed native
-    // init from taking down the whole handler — every nypc call site is already
-    // null-safe, so a null here simply disables system media controls.
-    private val nypc =
-        if (getPlatform() is Platform.Linux || getPlatform() is Platform.Windows) {
-            runCatching { NPYC(getPlatform()) }.getOrNull()
-        } else {
-            null
-        }
-
     // macOS Media Integration (Now Playing Center + Remote Command Center)
     private val macOSMediaIntegration: MacOSMediaIntegration? by lazy {
         if (MacOSMediaIntegration.isSupported()) {
             MacOSMediaIntegration.getInstance()
         } else {
             null
-        }
-    }
-
-    private fun getPlatform(): Platform {
-        val os = System.getProperty("os.name").lowercase()
-        return if (os.contains("win")) {
-            Platform.Windows
-        } else if (os.contains("mac")) {
-            Platform.MacOs
-        } else {
-            Platform.Linux(
-                "Pulse",
-                "pt.pulse.app",
-            )
         }
     }
 
@@ -427,33 +399,6 @@ class JvmMediaPlayerHandlerImpl(
         }
         player.volume = runBlocking { dataStoreManager.playerVolume.first() }
         mayBeRestoreQueue()
-        nypc?.setListener(
-            object : NowPlayingListener {
-                override fun onPlayPause() {
-                    coroutineScope.launch {
-                        onPlayerEvent(PlayerEvent.PlayPause)
-                    }
-                }
-
-                override fun onNext() {
-                    coroutineScope.launch {
-                        onPlayerEvent(PlayerEvent.Next)
-                    }
-                }
-
-                override fun onPrevious() {
-                    coroutineScope.launch {
-                        onPlayerEvent(PlayerEvent.Previous)
-                    }
-                }
-
-                override fun onStop() {
-                    coroutineScope.launch {
-                        onPlayerEvent(PlayerEvent.Stop)
-                    }
-                }
-            },
-        )
         // Initialize macOS media integration
         initializeMacOSMediaIntegration()
         coroutineScope.launch {
@@ -702,12 +647,6 @@ class JvmMediaPlayerHandlerImpl(
                     // Launched separately: "now playing" is a network round trip, and this job
                     // still has the rest of the track state to publish.
                     coroutineScope.launch { lastfmScrobbler.onTrackStarted(song) }
-                    nypc?.setNowPlaying(
-                        song.title,
-                        song.artistName?.joinToString(", ") ?: "",
-                        song.albumName ?: "",
-                        song.thumbnails,
-                    )
                     updateMacOSNowPlayingInfo(song)
                     Logger.w(TAG, "getDataOfNowPlayingState: ${nowPlayingState.value}")
                 }
@@ -866,13 +805,6 @@ class JvmMediaPlayerHandlerImpl(
                 isNextAvailable = player.hasNextMediaItem(),
                 isPreviousAvailable = player.hasPreviousMediaItem(),
             )
-        coroutineScope.launch {
-            nypc?.setButtonEnabled(
-                isPlaying = controlState.value.isPlaying,
-                canGoNext = controlState.value.isNextAvailable,
-                canGoPrevious = controlState.value.isPreviousAvailable,
-            )
-        }
         updateMacOSCommandsEnabled()
     }
 
@@ -2506,7 +2438,6 @@ class JvmMediaPlayerHandlerImpl(
 
     override fun release() {
         Logger.w("ServiceHandler", "Starting release process")
-        nypc?.removeListener()
         // Release macOS media integration
         clearMacOSNowPlayingInfo()
         macOSMediaIntegration?.release()
