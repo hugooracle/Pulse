@@ -63,7 +63,6 @@ import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import pulse.composeapp.generated.resources.Res
-import pulse.composeapp.generated.resources.ai_translated
 import pulse.composeapp.generated.resources.line_synced
 import pulse.composeapp.generated.resources.lyrics_provider_betterlyrics
 import pulse.composeapp.generated.resources.lyrics_provider_lrc
@@ -195,23 +194,10 @@ internal fun AppleMusicLyricsView(
                             .padding(horizontal = if (rendererOwnsGutter) 0.dp else AppleMusicLyricPaddingX),
                     backgroundColor = Color.Transparent,
                     footerContent = {
-                        // Right-aligned, and stacked: plain text rather than the AIBadge pill the
-                        // other styles use. Classic puts that badge beside a "Lyrics" heading where
-                        // it has a row to itself; here it would sit inline with the provider
-                        // caption, which is already the quietest thing on the page — a filled pill
-                        // next to it shouts. Two right-anchored lines read as one footnote block.
                         Column(
                             horizontalAlignment = Alignment.End,
                             modifier = Modifier.fillMaxWidth().padding(top = 20.dp, bottom = 8.dp),
                         ) {
-                            if (lyricsData.translatedLyrics?.second == LyricsProvider.AI) {
-                                Text(
-                                    text = stringResource(Res.string.ai_translated),
-                                    style = typography.footer,
-                                    textAlign = TextAlign.End,
-                                    modifier = Modifier.fillMaxWidth(),
-                                )
-                            }
                             // One line per fact, not one line joined by a bullet. "Word by word"
                             // and "Lyrics provided by Pulse Lyrics" are two different things,
                             // and glued together they make a single line long enough to run the
@@ -345,5 +331,4 @@ private fun appleMusicLyricsProviderText(lyricsData: NowPlayingScreenData.Lyrics
         LyricsProvider.SPOTIFY -> stringResource(Res.string.spotify_lyrics_provider)
         LyricsProvider.OFFLINE -> stringResource(Res.string.offline_mode)
         LyricsProvider.BETTER_LYRICS -> stringResource(Res.string.lyrics_provider_betterlyrics)
-        LyricsProvider.AI -> ""
     }

@@ -75,11 +75,6 @@ interface LyricsCanvasRepository {
     /** Fetch the artist's name-logo image + dominant color from the hidden catalog. */
     fun getArtistLogo(artistName: String): Flow<Resource<ArtistLogo>>
 
-    fun getAITranslationLyrics(
-        lyrics: Lyrics,
-        targetLanguage: String,
-    ): Flow<Resource<Lyrics>>
-
     fun getPulseLyrics(videoId: String): Flow<Resource<Lyrics>>
 
     fun getPulseTranslatedLyrics(

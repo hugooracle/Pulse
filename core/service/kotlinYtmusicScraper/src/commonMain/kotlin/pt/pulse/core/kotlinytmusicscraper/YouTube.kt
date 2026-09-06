@@ -53,7 +53,6 @@ import pt.pulse.core.kotlinytmusicscraper.models.response.TidalOAuthResponse
 import pt.pulse.core.kotlinytmusicscraper.models.response.RemoteConfig
 import pt.pulse.core.kotlinytmusicscraper.models.response.toLikeStatus
 import pt.pulse.core.kotlinytmusicscraper.models.response.toListAccountInfo
-import pt.pulse.core.kotlinytmusicscraper.models.pulse.FdroidResponse
 import pt.pulse.core.kotlinytmusicscraper.models.pulse.GithubResponse
 import pt.pulse.core.kotlinytmusicscraper.models.sponsorblock.SkipSegments
 import pt.pulse.core.kotlinytmusicscraper.models.youtube.GhostResponse
@@ -872,11 +871,6 @@ class YouTube {
     suspend fun checkForGithubReleaseUpdate(): Result<GithubResponse> =
         runCatching {
             ytMusic.checkForGithubReleaseUpdate().body<GithubResponse>()
-        }
-
-    suspend fun checkForFdroidUpdate(): Result<FdroidResponse> =
-        runCatching {
-            ytMusic.checkForFdroidUpdate().body<FdroidResponse>()
         }
 
     suspend fun newRelease(): Result<ExplorePage> =

@@ -37,7 +37,7 @@ print_usage() {
   echo "  --release          Build in release mode (default)"
   echo "  --debug            Build in debug mode"
   echo "  --full             Build full with Sentry"
-  echo "  --foss             Build foss, compatibility with F-Droid, no Sentry"
+  echo "  --foss             Build FOSS variant without Sentry"
   echo "  -h, --help         Show this help message"
   echo ""
   echo "Environment variables:"

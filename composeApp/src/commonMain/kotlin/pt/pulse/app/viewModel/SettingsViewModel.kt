@@ -147,18 +147,6 @@ class SettingsViewModel(
     val autoCheckUpdate: StateFlow<Boolean> = _autoCheckUpdate
     private var _updateChannel: MutableStateFlow<String> = MutableStateFlow(DataStoreManager.GITHUB)
     val updateChannel: StateFlow<String> = _updateChannel
-    private val _aiProvider = MutableStateFlow<String>(DataStoreManager.AI_PROVIDER_OPENAI)
-    val aiProvider: StateFlow<String> = _aiProvider
-    private val _isHasApiKey = MutableStateFlow<Boolean>(false)
-    val isHasApiKey: StateFlow<Boolean> = _isHasApiKey
-    private val _useAITranslation = MutableStateFlow<Boolean>(false)
-    val useAITranslation: StateFlow<Boolean> = _useAITranslation
-    private val _customModelId = MutableStateFlow<String>("")
-    val customModelId: StateFlow<String> = _customModelId
-    private val _customOpenAIBaseUrl = MutableStateFlow<String>("")
-    val customOpenAIBaseUrl: StateFlow<String> = _customOpenAIBaseUrl
-    private val _customOpenAIHeaders = MutableStateFlow<String>("")
-    val customOpenAIHeaders: StateFlow<String> = _customOpenAIHeaders
     private val _crossfadeEnabled = MutableStateFlow<Boolean>(false)
     val crossfadeEnabled: StateFlow<Boolean> = _crossfadeEnabled
     private val _crossfadeDuration = MutableStateFlow<Int>(5000)
@@ -305,12 +293,6 @@ class SettingsViewModel(
         getCanvasCache()
         getTranslucentBottomBar()
         getAutoCheckUpdate()
-        getAIProvider()
-        getAIApiKey()
-        getAITranslation()
-        getCustomModelId()
-        getCustomOpenAIBaseUrl()
-        getCustomOpenAIHeaders()
         getKillServiceOnExit()
         getCrossfadeEnabled()
         getCrossfadeDuration()
@@ -751,106 +733,6 @@ class SettingsViewModel(
         viewModelScope.launch {
             dataStoreManager.setContributorLyricsDatabase(contributor.value.first to email)
             getContributorNameAndEmail()
-        }
-    }
-
-    private fun getCustomModelId() {
-        viewModelScope.launch {
-            dataStoreManager.customModelId.collect { customModelId ->
-                _customModelId.value = customModelId
-            }
-        }
-    }
-
-    fun setCustomModelId(modelId: String) {
-        viewModelScope.launch {
-            dataStoreManager.setCustomModelId(modelId)
-            getCustomModelId()
-        }
-    }
-
-    private fun getCustomOpenAIBaseUrl() {
-        viewModelScope.launch {
-            dataStoreManager.customOpenAIBaseUrl.collect { baseUrl ->
-                _customOpenAIBaseUrl.value = baseUrl
-            }
-        }
-    }
-
-    fun setCustomOpenAIBaseUrl(baseUrl: String) {
-        viewModelScope.launch {
-            dataStoreManager.setCustomOpenAIBaseUrl(baseUrl)
-            getCustomOpenAIBaseUrl()
-        }
-    }
-
-    private fun getCustomOpenAIHeaders() {
-        viewModelScope.launch {
-            dataStoreManager.customOpenAIHeaders.collect { headers ->
-                _customOpenAIHeaders.value = headers
-            }
-        }
-    }
-
-    fun setCustomOpenAIHeaders(headers: String) {
-        viewModelScope.launch {
-            dataStoreManager.setCustomOpenAIHeaders(headers)
-            getCustomOpenAIHeaders()
-        }
-    }
-
-    private fun getAIProvider() {
-        viewModelScope.launch {
-            dataStoreManager.aiProvider.collect { aiProvider ->
-                _aiProvider.value = aiProvider
-            }
-        }
-    }
-
-    fun setAIProvider(provider: String) {
-        viewModelScope.launch {
-            dataStoreManager.setAIProvider(provider)
-            getAIProvider()
-        }
-    }
-
-    private fun getAITranslation() {
-        viewModelScope.launch {
-            dataStoreManager.useAITranslation.collect { useAITranslation ->
-                _useAITranslation.value = useAITranslation == DataStoreManager.TRUE
-            }
-        }
-    }
-
-    fun setAITranslation(useAITranslation: Boolean) {
-        viewModelScope.launch {
-            dataStoreManager.setUseAITranslation(useAITranslation)
-            getAITranslation()
-        }
-    }
-
-    private fun getAIApiKey() {
-        viewModelScope.launch {
-            dataStoreManager.aiApiKey.collect { aiApiKey ->
-                if (aiApiKey.isNotEmpty()) {
-                    _isHasApiKey.value = true
-                    log("getAIApiKey: $aiApiKey")
-                } else {
-                    _isHasApiKey.value = false
-                }
-            }
-        }
-    }
-
-    fun setAIApiKey(apiKey: String) {
-        viewModelScope.launch {
-            dataStoreManager.setAIApiKey(apiKey)
-            // An empty key IS the sign-out here — isHasApiKey is derived from aiApiKey.isNotEmpty()
-            // — so AI translation, which is gated on it, has to come off with it.
-            if (apiKey.isEmpty()) {
-                dataStoreManager.setUseAITranslation(false)
-            }
-            getAIApiKey()
         }
     }
 

@@ -35,7 +35,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import pt.pulse.service.aiservice.AiClient
 import pt.pulse.service.lyrics.PulseLyricsClient
 import pt.pulse.service.lyrics.am.AMAlbumResource
 import pt.pulse.service.lyrics.am.AMEditorialVideo
@@ -54,7 +53,6 @@ internal class LyricsCanvasRepositoryImpl(
     private val youTube: YouTube,
     private val spotify: Spotify,
     private val pulseLyrics: PulseLyricsClient,
-    private val aiClient: AiClient,
 ) : LyricsCanvasRepository {
     /**
      * Video ids whose animated artwork is being searched right now, so the same track is never sent
@@ -633,25 +631,6 @@ internal class LyricsCanvasRepositoryImpl(
                 }.onFailure {
                     emit(Resource.Error<ArtistLogo>(it.message ?: "Artist search failed"))
                 }
-        }.flowOn(Dispatchers.IO)
-
-    override fun getAITranslationLyrics(
-        lyrics: Lyrics,
-        targetLanguage: String,
-    ): Flow<Resource<Lyrics>> =
-        flow {
-            runCatching {
-                Logger.w("AI Translation", "targetLanguage: $targetLanguage")
-                aiClient
-                    .translateLyrics(lyrics, targetLanguage)
-                    .onSuccess { translatedLyrics ->
-                        Logger.w("AI Translation", "translatedLyrics: $translatedLyrics")
-                        emit(Resource.Success(translatedLyrics))
-                    }.onFailure { throwable ->
-                        Logger.e("AI Translation", "Error: ${throwable.message}")
-                        emit(Resource.Error<Lyrics>("Translation failed"))
-                    }
-            }
         }.flowOn(Dispatchers.IO)
 
     // Pulse Lyrics

@@ -227,9 +227,6 @@ class ExoPlayerAdapter(
      */
     override var sleepFadeFactor: Float = 1f
 
-    /** No crossfade in this adapter; the flag exists to satisfy MediaPlayerInterface. */
-    override var crossfadeSuppressed: Boolean = false
-
     /** Stored but unused: this adapter has no crossfade, so there is nothing to hold back. */
     override var albumTrackIds: Set<String> = emptySet()
 

@@ -17,7 +17,6 @@ import pt.pulse.core.spotify.Spotify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import org.koin.dsl.module
-import pt.pulse.service.aiservice.AiClient
 import pt.pulse.service.lyrics.PulseLyricsClient
 import kotlin.time.ExperimentalTime
 import pt.pulse.service.autoeq.AutoEq
@@ -65,10 +64,6 @@ val databaseModule =
 
         single(createdAtStart = true) {
             Spotify()
-        }
-
-        single(createdAtStart = true) {
-            AiClient()
         }
 
         single(createdAtStart = true) {

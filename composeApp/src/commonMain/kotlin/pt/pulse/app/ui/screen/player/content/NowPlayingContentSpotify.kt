@@ -120,7 +120,6 @@ import pt.pulse.app.extension.isElementVisible
 import pt.pulse.app.extension.parseTimestampToMilliseconds
 import pt.pulse.app.extension.smoothScrimBrush
 import pt.pulse.app.getPlatform
-import pt.pulse.app.ui.component.AIBadge
 import pt.pulse.app.ui.component.DescriptionView
 import pt.pulse.app.ui.component.ExplicitBadge
 import pt.pulse.app.ui.component.HeartCheckBox
@@ -1428,10 +1427,6 @@ fun NowPlayingContentSpotify(
                                             style = typo().labelMedium,
                                             color = Color.White,
                                         )
-                                        if (state.screenData.lyricsData?.translatedLyrics?.second == LyricsProvider.AI) {
-                                            Spacer(modifier = Modifier.width(8.dp))
-                                            AIBadge()
-                                        }
                                         Spacer(modifier = Modifier.weight(1f))
                                         // Vote button — only when the lyrics or the translation came from
                                         // Pulse Lyrics. The rule itself lives on the shared contract
