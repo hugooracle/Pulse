@@ -41,7 +41,6 @@ import pt.pulse.app.ui.component.RippleIconButton
 import pt.pulse.app.ui.icon.ArrowBackIosNew
 import pt.pulse.app.ui.icon.PulseIcons
 import pt.pulse.app.ui.theme.typo
-import pt.pulse.app.utils.VersionManager
 import dev.chrisbanes.haze.hazeEffect
 import dev.chrisbanes.haze.hazeSource
 import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
@@ -85,12 +84,6 @@ fun CreditScreen(
             text = stringResource(Res.string.app_name),
             style = typo().titleLarge,
             fontSize = 22.sp,
-        )
-
-        Text(
-            text = stringResource(Res.string.version_format, VersionManager.getVersionName()),
-            style = typo().bodySmall,
-            fontSize = 13.sp,
         )
 
         Spacer(modifier = Modifier.height(20.dp))
