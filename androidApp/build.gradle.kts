@@ -182,7 +182,7 @@ sentry {
     if (isFullBuild) {
         val token =
             try {
-                println("Full build detected, enabling Sentry Auth Token")
+                println("Full build detected, checking Sentry Auth Token")
                 val properties = Properties()
                 properties.load(rootProject.file("local.properties").inputStream())
                 properties.getProperty("SENTRY_AUTH_TOKEN")
@@ -190,9 +190,21 @@ sentry {
                 println("Failed to load SENTRY_AUTH_TOKEN from local.properties: ${e.message}")
                 null
             }
-        authToken.set(token ?: "")
-        includeProguardMapping.set(true)
-        autoUploadProguardMapping.set(true)
+
+        if (token.isNullOrBlank()) {
+            println("SENTRY_AUTH_TOKEN not configured; disabling Sentry uploads for this build")
+            authToken.set("")
+            includeProguardMapping.set(false)
+            autoUploadProguardMapping.set(false)
+            uploadNativeSymbols.set(false)
+            includeDependenciesReport.set(false)
+            includeSourceContext.set(false)
+            includeNativeSources.set(false)
+        } else {
+            authToken.set(token)
+            includeProguardMapping.set(true)
+            autoUploadProguardMapping.set(true)
+        }
     } else {
         includeProguardMapping.set(false)
         autoUploadProguardMapping.set(false)
