@@ -1,20 +1,10 @@
-# Pulse — Estado operacional
+# Pulse status
 
-Estado: baseline limpa em `dev`.
+- Android identity migrated to Pulse (`pt.pulse.app`).
+- Room schemas migrated to the Pulse namespace; historical migration schema preserved under `legacy/`.
+- Android debug APK builds successfully on GitHub Actions.
+- Portuguese (Portugal) resource overrides added for the main user-facing interface.
+- Inherited upstream donation, personal-blog links, home promotion dialog/hooks and RSS blog notifications removed from the Pulse UI/runtime.
+- GPL licence and upstream attribution remain preserved.
 
-## Feito
-
-- remotes oficiais (`origin` = teu fork, `upstream` = maxrave-dev)
-- APK Android e `applicationId = pt.pulse.app`
-- pacote Kotlin Android em `pt/pulse/...`
-- package desktop em `pt.pulse.app.desktop`
-- Compose Desktop em `pt.pulse.app.desktop`
-- App Group iOS `group.pt.pulse.app`
-- deep links `pulse://`
-- assets e manifesto Android Pulse
-- `.gitmodules` e submodules apontados ao teu fork
-- secrets/identificadores públicos óbvios removidos
-
-## Próximo passo
-
-Começar funcionalidades a partir desta baseline e manter `PULSE_REBRAND_STATUS.md` atualizado.
+Final validation target: `refactor/pulse-full-rebrand`.
