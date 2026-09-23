@@ -1,10 +1,5 @@
 # Pulse status
 
-- Android identity migrated to Pulse (`pt.pulse.app`).
-- Room schemas migrated to the Pulse namespace; historical migration schema preserved under `legacy/`.
-- Android debug APK builds successfully on GitHub Actions.
-- Portuguese (Portugal) resource overrides added for the main user-facing interface.
-- Inherited upstream donation, personal-blog links, home promotion dialog/hooks and RSS blog notifications removed from the Pulse UI/runtime.
-- GPL licence and upstream attribution remain preserved.
-
-Final validation target: `refactor/pulse-full-rebrand`.
+- Release v2.0.1: WITHDRAWN / DO NOT DISTRIBUTE.
+- Do not publish or reuse the v2.0.1 APK as an official Pulse release.
+- Continue development from `dev` and prepare a new release only after the Android release build is revalidated.
