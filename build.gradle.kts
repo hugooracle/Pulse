@@ -48,9 +48,19 @@ subprojects {
     // JsonArray.streamAsJsonObjects(), causing NoSuchMethodError when Brave's fallback runs at
     // runtime. Force the latest upstream commit (newer than both libs ship) across every module
     // so the merged APK/JAR carries a nanojson with the API both extractors expect.
+    //
+    // The version catalog still contains the old Compose-1.12 Compottie SNAPSHOT pin, but that
+    // snapshot is no longer published by any configured Maven repository. Compottie 2.3.1 is a
+    // stable Maven Central release built against Compose 1.12, so force the four modules Pulse
+    // consumes to that version until the catalog can be simplified without disturbing the wider
+    // Compose dependency alignment.
     configurations.all {
         resolutionStrategy {
             force("com.github.TeamNewPipe:nanojson:c7a6c1c08d16b6d5ecded34758e6415e07be2166")
+            force("io.github.alexzhirkevich:compottie:2.3.1")
+            force("io.github.alexzhirkevich:compottie-dot:2.3.1")
+            force("io.github.alexzhirkevich:compottie-network:2.3.1")
+            force("io.github.alexzhirkevich:compottie-resources:2.3.1")
         }
     }
 }
